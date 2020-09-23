@@ -84,9 +84,9 @@ author:
   avatar           : "profile.jpg"
   bio              : "Your biography for the left-hand sidebar"
   location         : "Location"
-  employer         :
+  employer         : "Northwestern University"
   pubmed           : "https://pubmed.ncbi.nlm.nih.gov/?term=Runge+Manuela"
-  googlescholar    : "http://yourfullgooglescholarurl.com"
+  googlescholar    : "https://scholar.google.com/citations?hl=en&authuser=1&user=XhVEFQQAAAAJ"
   email            : 
   researchgate     : "https://www.researchgate.net/profile/Manuela_Runge"
   uri              :
@@ -112,7 +112,7 @@ author:
   twitter          : "@RungeManuela"
   vine             :
   weibo            :
-  xing             :
+  xing             : 
   youtube          : 
   wikipedia        :
 
@@ -255,7 +255,7 @@ sass:
 permalink: /:categories/:title/
 # paginate: 5 # amount of posts to show
 # paginate_path: /page:num/
-timezone: America/Los_Angeles # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+timezone: America/Chicago # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 
 # Plugins
