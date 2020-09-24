@@ -6,14 +6,14 @@ main:
   - title: "Talks"
     url: https://manuelarunge.github.io/talks/    
 
-  #- title: "Teaching"
-  #  url: /teaching/    
+  - title: "Research resources"
+    url: https://manuelarunge.github.io/research_resources/
     
   - title: "Portfolio"
     url: https://manuelarunge.github.io/portfolio/
         
-  #- title: "Blog Posts"
-  #  url: https://manuelarunge.github.io/year-archive/
+  - title: "Personal"
+    url: https://manuelarunge.github.io/personal/
     
   - title: "CV"
     url: https://manuelarunge.github.io/cv/
