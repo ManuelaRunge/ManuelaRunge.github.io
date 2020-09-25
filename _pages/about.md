@@ -8,12 +8,14 @@ redirect_from:
   - /about.html
 ---
 
-I am a malaria epidemiologist with a public health background and trained in applied mathematical modelling. 
+Malaria epidemiologist with strong quantitative skills and practice in mathematical modelling. Experience in working and living in a low-income country, participation in stakeholder meetings for strategic planning of malaria interventions. 
 
 About me
 ======
 I enjoy working in interdisciplinary teams and one of the most valuable experience in that regard was my time in Tanzania.
 Check out my [CV](https://manuelarunge.github.io/cv/) here. 
+
+While interested in advancing my career, I am genuinely interested in the success of the team I am working in
 
 Research interests
 ======
@@ -23,7 +25,7 @@ Check out my [publications](https://manuelarunge.github.io/publications/) here.
 
 [Website in progress - more content coming soon!]
 
-![Test figure](https://github.com/ManuelaRunge.github.io/tree/master/images/profile.png)
+![Test figure](/images/profile.png)
 
 For more info
 ------

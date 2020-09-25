@@ -1,13 +1,13 @@
 ---
 title: "Malaria research literature"
-collection: teaching
-type: "Resources"
-permalink: /research_resources/2020-malaria-research-literature
+type: "resources"
+permalink: /_research_resources/2020-malaria-research-literature
 date: 2020-09-23
 location: "Chicago"
 ---
 
 Coming soon!
+https://www.zotero.org/manuela.runge/collections/WEB7E7VT/items/GBULK39D/collection
 
 Heading 1
 ======

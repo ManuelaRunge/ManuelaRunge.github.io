@@ -1,11 +1,8 @@
 ---
 title: 'Its not all about work!'
 date: 2020-09-23
-permalink: /personal/
-tags:
-  - cool posts
-  - category1
-  - category2
+type: posts
+permalink: /_personal/personal_text
 ---
 
 Coming soon!

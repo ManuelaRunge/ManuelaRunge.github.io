@@ -5,18 +5,18 @@ main:
 
   - title: "Talks"
     url: https://manuelarunge.github.io/talks/    
-
-  - title: "Research resources"
-    url: https://manuelarunge.github.io/research_resources/
-    
+  
   - title: "Portfolio"
     url: https://manuelarunge.github.io/portfolio/
-        
-  - title: "Personal"
-    url: https://manuelarunge.github.io/personal/
     
   - title: "CV"
     url: https://manuelarunge.github.io/cv/
+    
+  - title: "Research resources"
+    url: https://manuelarunge.github.io/research_resources/
+
+  - title: "Personal"
+    url: https://manuelarunge.github.io/personal/
     
   #- title: "Guide"
   #  url: /markdown/
