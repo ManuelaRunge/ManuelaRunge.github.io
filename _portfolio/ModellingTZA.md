@@ -12,4 +12,4 @@ In the meantime why not checking out the two related publications shown below?
 <br/><img src='/images/journal.pone.0228469.g001.PNG'>
 
 [Applied mathematical modelling to inform national malaria policies, strategies and operations in Tanzania](https://pubmed.ncbi.nlm.nih.gov/32122342/)
-<br/><img src='/images/IMAG1448.jpg'>
+<br/><img src='/images/12936_2020_3173_Fig1_HTML.jpg'>
