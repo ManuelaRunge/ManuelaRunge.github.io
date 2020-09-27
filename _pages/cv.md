@@ -11,31 +11,67 @@ redirect_from:
 
 Education
 ======
-* B.S. in GitHub, GitHub University, 2012
-* M.S. in Jekyll, GitHub University, 2014
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
-
+* Ph.D in Epidemiology, University Basel and Swiss Tropical and Public Health Institute, Switzerland, 2019
+	* Thesis: Mathematical modelling of malaria control interventions to support strategic planning in Tanzania
+* M.Sc. in Epidemiology, University Basel and Swiss Tropical and Public Health Institute, Switzerland, 2016
+	* Thesis: The Use of Public Primary Schools for Malaria Surveillance in Tanzania
+* B.Sc. in Health Sciences, University of Applied Sciences Hamburg, Germany, 2014
+	* Thesis: Der Einfluss der menopausalen Hormontherapie auf die Gesamtmortalitat
+	
 Work experience
 ======
-* Summer 2015: Research Assistant
-  * Github University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
+* Since Jan 2020: Postdoctoral Fellow
+  * Northwestern University
+  * Department of Preventive Medicine, Chicago IL
+  * Malaria modelling and COVID-19 modelling
+  * https://www.numalariamodeling.org/
 
-* Fall 2015: Research Assistant
-  * Github University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
+* 2016 Scientific Assistant
+  * Swiss Tropical and Public Health Institute
+  * Health Interventions Unit, Basel Switzerland
+  * SOP for data management for the nationwide school survey in Tanzania
+  * Preparation of manuscript publication 
+ 
+* 2015: Student Intern
+  * NETCELL Project in collaboration with the National Malaria Control Programme, Tanzania
+  * Supervision data collection of the School Malaria Parasitaemia Survey in Arusha Region 
+  * Lead data entry, data management and analysis of whole survey 
   
+* 2014 - 2016: Medical Data Manager (part-time, remote)
+  * University hospital Hamburg-Eppendorf
+  * Department of Medical Biometry and Epidemiology, Hamburg Germany
+  * Data cleaning and preparation of automated data analysis reports
+	
+* 2014: Assistant Lecturer (1 semester)
+  * University of Applied Sciences Hamburg
+  * B.Sc module Health Reporting and Surveillance
+  * Lectures and supervision of group works
+   
+* 2010-2014: Patient care student jobs and volunteering 
+  * Praxis-Klinik Bergedorf, Germany (Rehabilitation)
+  * Bethesda Krankenhaus Bergedorf, Germany (Internal Medicne)
+  * Marienhospital Stuttgart, Germany (Pneumology)
+   
+   
 Skills
 ======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
-
+* Malaria research
+* Statistical Programming
+  * R
+  * Python
+  * Stata
+  * SPSS
+* Other 
+  * QGIS, ArcGIS
+  * High performance cluster
+  * Batch scripting
+  * MS office
+  * LaTeX
+* Languages
+  * German (native)
+  * English (fluent)
+  * Swahili (basics)
+  
 Publications
 ======
   <ul>{% for post in site.publications %}
@@ -56,4 +92,17 @@ Teaching
   
 Service and leadership
 ======
-* Currently signed in to 43 different slack teams
+* 2015-2019 Active participant in multiple stakeholder workshops of the National Malaria Control Programme, Tanzania
+* 2018, 2019 MESA correspondent 
+* 2017-2018 PhD Student representative
+* 2012-2014: Tutoring of group works during B.Sc studies
+
+
+Country experience
+======
+* US (current position)
+* Switzerland (M.Sc and Ph.D studies)
+* Tanzania (M.Sc and Ph.D studies)
+* Scotland (exchange semester during B.Sc studies)
+* Germany (home country)
+
