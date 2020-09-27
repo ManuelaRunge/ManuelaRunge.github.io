@@ -19,11 +19,11 @@ and how modelling outputs can be of use in these contexts.
 
 About me
 ======
-During my intern in patient care in the Marienhospital in Stuttgart, I developed the interest in public health, to ideally prevent individuals to even have to come to the hospital in the first place.
-Maybe a too ambitious though, however it led me to study health sciences for my undergraduate. After that I then decided to study Epidemiology at the University of Basel in Switzerland and the Swiss Tropical and Public Health Institute. 
-During the masters I focused more on infectious diseases specifically malaria. 
-As a student intern I went to Tanzania to work with the National Malaria Control Program which at the time planned a first nationwide school malaria survey. 
-I worked  for a bit as a scientific assistant to finish work on the survey in Tanzania before I started my PhD. 
+During my intern in patient care in the Marienhospital in Stuttgart in 2011, I developed a interest in public health, to ideally prevent individuals to even have to come to the hospital in the first place.
+Probably a too ambitious goal, however it led me to study health sciences for my undergraduate. After that I then decided to study Epidemiology at the University of Basel in Switzerland and the Swiss Tropical and Public Health Institute. 
+During the masters I focused on infectious diseases, malaria in particular. 
+As a student intern I went to Tanzania, in 2015, to work with the National Malaria Control Program which at the time planned a first nationwide school malaria survey. 
+I worked  for a bit as a scientific assistant to finish work on the survey in Tanzania before I started my PhD in 2016. 
 During my PhD I got into mathematical modelling, and I used modelling to support the national malaria control plan in Tanzania. 
 Currently I am a postdoctoral fellow at the Northwestern University at the [nummalaria modelling team](https://www.numalariamodeling.org/) in Prof Jaline Gerardins lab.
 Go to [CV](https://manuelarunge.github.io/cv/). 
