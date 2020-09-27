@@ -1,6 +1,5 @@
 ---
 title: "Malaria research literature"
-type: "resources"
 permalink: /_research_resources/2020-malaria-research-literature
 date: 2020-09-23
 location: "Chicago"
