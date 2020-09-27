@@ -11,11 +11,14 @@ redirect_from:
 
 Education
 ======
-* Ph.D in Epidemiology, University Basel and Swiss Tropical and Public Health Institute, Switzerland, 2019
+* 2019: Ph.D in Epidemiology
+	* University Basel and Swiss Tropical and Public Health Institute, Switzerland
 	* Thesis: Mathematical modelling of malaria control interventions to support strategic planning in Tanzania
-* M.Sc. in Epidemiology, University Basel and Swiss Tropical and Public Health Institute, Switzerland, 2016
+* 2016: M.Sc. in Epidemiology
+	* University Basel and Swiss Tropical and Public Health Institute, Switzerland
 	* Thesis: The Use of Public Primary Schools for Malaria Surveillance in Tanzania
-* B.Sc. in Health Sciences, University of Applied Sciences Hamburg, Germany, 2014
+* 2014: B.Sc. in Health Sciences
+	* University of Applied Sciences Hamburg, Germany
 	* Thesis: Der Einfluss der menopausalen Hormontherapie auf die Gesamtmortalitat
 	
 Work experience
@@ -26,7 +29,7 @@ Work experience
   * Malaria modelling and COVID-19 modelling
   * https://www.numalariamodeling.org/
 
-* 2016 Scientific Assistant
+* 2016: Scientific Assistant
   * Swiss Tropical and Public Health Institute
   * Health Interventions Unit, Basel Switzerland
   * SOP for data management for the nationwide school survey in Tanzania
@@ -72,6 +75,23 @@ Skills
   * English (fluent)
   * Swahili (basics)
   
+Service and leadership
+======
+* 2015-2019: Active participant in multiple stakeholder workshops of the National Malaria Control Programme, Tanzania
+* 2018, 2019: MESA correspondent 
+* 2017-2018: PhD Student representative
+* 2012-2014: Tutoring of group works during B.Sc studies
+
+
+Country experience
+======
+* US (current position)
+* Switzerland (M.Sc and Ph.D studies)
+* Tanzania (M.Sc and Ph.D studies)
+* Scotland (exchange semester during B.Sc studies)
+* Germany (home country)
+
+
 Publications
 ======
   <ul>{% for post in site.publications %}
@@ -84,25 +104,10 @@ Talks
     {% include archive-single-talk-cv.html %}
   {% endfor %}</ul>
   
-Teaching
+<!-- Teaching
 ======
   <ul>{% for post in site.teaching %}
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
-  
-Service and leadership
-======
-* 2015-2019 Active participant in multiple stakeholder workshops of the National Malaria Control Programme, Tanzania
-* 2018, 2019 MESA correspondent 
-* 2017-2018 PhD Student representative
-* 2012-2014: Tutoring of group works during B.Sc studies
-
-
-Country experience
-======
-* US (current position)
-* Switzerland (M.Sc and Ph.D studies)
-* Tanzania (M.Sc and Ph.D studies)
-* Scotland (exchange semester during B.Sc studies)
-* Germany (home country)
-
+ -->
+ 
