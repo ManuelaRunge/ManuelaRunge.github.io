@@ -207,7 +207,7 @@ defaults:
       comments: true
       share: true
       related: true
-  # _personal
+  # _blog
   - scope:
       path: ""
       type: posts

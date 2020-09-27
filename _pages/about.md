@@ -16,23 +16,28 @@ The dynamic and interdisciplinary teamwork with the Tanzanian program managers p
 and how modelling outputs can be of use in these contexts. 
 
 
-<!--
+
 About me
 ======
-[...]I am a team player and enjoy working in interdisciplinary teams.
-While interested in advancing my career, I am genuinely interested in the success of the team I am working in. 
-Check out my [CV](https://manuelarunge.github.io/cv/) here. 
--->
+During my intern in patient care in the Marienhospital in Stuttgart, I developed the interest in public health, to ideally prevent individuals to even have to come to the hospital in the first place.
+Maybe a too ambitious though, however it led me to study health sciences for my undergraduate. After that I then decided to study Epidemiology at the University of Basel in Switzerland and the Swiss Tropical and Public Health Institute. 
+During the masters I focused more on infectious diseases specifically malaria. 
+As a student intern I went to Tanzania to work with the National Malaria Control Program which at the time planned a first nationwide school malaria survey. 
+I worked  for a bit as a scientific assistant to finish work on the survey in Tanzania before I started my PhD. 
+During my PhD I got into mathematical modelling, and I used modelling to support the national malaria control plan in Tanzania. 
+Currently I am a postdoctoral fellow at the Northwestern University at the [nummalaria modelling team](https://www.numalariamodeling.org/) in Prof Jaline Gerardins lab.
+Go to [CV](https://manuelarunge.github.io/cv/). 
 
 
 Research interests
 ======
-My research interests are mainly centered around data-driven and evidence-based decision making for targeted deployment of control interventions. 
+My research interests are centered around data-driven and evidence-based decision making for targeted deployment of control interventions. 
 More specifically I used mathematical modelling to support the national malaria strategic plan in Tanzania. 
-Check out my [publications](https://manuelarunge.github.io/publications/) here. 
+Go to [publications](https://manuelarunge.github.io/publications/). 
 
 
 Other interests 
 ===== 
-I am interested in exploring new tools, new (and old) tips for enhanced productivity and efficiency. 
-Apart from that I am a passionate about diving, the ocean, table tennis good fiction books and organizing sub-folders.
+I am interested in exploring new tools, new tips for enhanced productivity and efficiency. 
+Apart from that, I am a passionate about diving, the ocean, table tennis, fiction books and organizing sub-folders.
+Go to [research resources](https://manuelarunge.github.io/research_resources/) or check out my [blog](https://manuelarunge.github.io/blog/). 
