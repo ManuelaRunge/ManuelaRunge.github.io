@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "Manuela Runge"
+title: "Short bio"
 excerpt: "Short bio"
 author_profile: true
 redirect_from: 
