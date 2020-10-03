@@ -8,16 +8,13 @@ redirect_from:
   - /about.html
 ---
 
-Dr Manuela Runge is postdoctoral fellow at the Northwestern University at the [nummalaria modelling team](https://www.numalariamodeling.org/).
-She received her PhD from the Swiss Tropical and Public health Institute in Basel, Switzerland, 
-and has a MSc in Epidemiology and did her undergraduate in Health Sciences.
-Dr Runge has spent time living in Tanzania working on a School Malaria Parasitaemia Survey during the MSc, followed by modelling support to the National Malaria Control Programme.
-Her PhD research focused on the use of modelling for strategic planning by using country data for district-specific 
-impact predictions of malaria control interventions, that was conducted in close collaboration with the National Malaria Control Programme in Tanzania.
-Dr Runge particpated in several stakeholder meetings for the revision of the national malaria control strategic plan in Tanzania.
+Dr Manuela Runge is postdoctoral fellow at the Department of Preventive Medicine at Northwestern University. 
+She received her PhD and MSc in Epidemiology from the Swiss Tropical and Public Health Institute, and her undergraduate degree in Health Sciences at the University of Applied Sciences Hamburg. 
+Dr Runge has spent time living in Tanzania working on a School Malaria Parasitaemia Survey , followed by modelling support to the National Malaria Control Programme. 
+The modelling support included the use of modelling for strategic planning by using country data for district-specific impact predictions of malaria control interventions. 
+Dr Runge particpated in several stakeholder meetings for the revision of the national malaria control strategic plan in Tanzania. 
 The close collaboration with the Tanzanian program, and recently interactions with the Illinois Department of Public Health provided Dr Runge with insights into local policy and how modelling outputs can be of value in the decision making process. 
-In her postdoctoral position, Dr Runge works on developing COVID-19 transmission and disease model in Illinois.  
-
+In her current position, Dr Runge works on developing COVID-19 transmission and disease model in Illinois.  
 <!--
 About me
 ======
