@@ -78,7 +78,7 @@ Skills
 Service and leadership
 ======
 * 2015-2019: Active participant in multiple stakeholder workshops of the National Malaria Control Programme, Tanzania
-* 2018, 2019: MESA correspondent 
+* 2018, 2020: MESA correspondent 
 * 2017-2018: PhD Student representative
 * 2012-2014: Tutoring of group works during B.Sc studies
 
@@ -104,6 +104,7 @@ Talks
     {% include archive-single-talk-cv.html %}
   {% endfor %}</ul>
   
+
 <!-- Teaching
 ======
   <ul>{% for post in site.teaching %}
