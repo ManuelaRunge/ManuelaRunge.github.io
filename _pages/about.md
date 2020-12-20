@@ -14,4 +14,4 @@ She has spent time living in Tanzania working on a School Malaria Parasitaemia S
 The modelling support included the use of modelling for strategic planning by using country data for district-specific impact predictions of malaria control interventions. 
 Dr Runge participated in several stakeholder meetings for the revision of the national malaria control strategic plan in Tanzania. 
 The close collaboration with the Tanzanian program, and recently interactions with the Illinois Department of Public Health provided her with insights into local policy and how modelling outputs can be of value in the decision making process. 
-In her current position, Dr Runge works on COVID-19 transmission and disease modelingl in Illinois, USA.  
+In her current position, Dr Runge works on COVID-19 transmission and disease modeling in Illinois, USA.  
