@@ -4,7 +4,7 @@ collection: talks
 type: "Talk"
 permalink: /talks/2017-ASTMH
 venue: "ASTMH"
-date: 2017-01-01
+date: 2017-11-26
 location: "Baltimore, USA"
 ---
 

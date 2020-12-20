@@ -4,7 +4,7 @@ collection: talks
 type: "Talk"
 permalink: /talks/2019-ECTMIH
 venue: "ASTMH"
-date: 2019-01-01
+date: 2019-10-18
 location: "Liverpool, UK"
 ---
 
