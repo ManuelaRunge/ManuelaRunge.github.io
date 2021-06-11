@@ -11,4 +11,3 @@ citation: 'Runge, M., Molteni, F., Mandike, R., Snow, R.W., Lengeler, C., Mohame
 This case study article describes the long-term use of modelling in close collaboration with the National Malaria Control Programme (NMCP) in Tanzania, the challenges encountered and lessons learned.
 [Download paper here](https://link.springer.com/article/10.1186/s12936-020-03173-0)
 
-Recommended citation: Runge, M., Molteni, F., Mandike, R., Snow, R.W., Lengeler, C., Mohamed, A., Pothin, E., 2020. Applied mathematical modelling to inform national malaria policies, strategies and operations in Tanzania. submitted to Malaria Journal.

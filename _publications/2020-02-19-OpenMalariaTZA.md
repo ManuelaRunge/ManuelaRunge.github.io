@@ -15,4 +15,3 @@ could support strategic planning of malaria control in many other malaria endemi
 
 [Download paper here](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0228469)
 
-Recommended citation: Runge, M., Snow, R.W., Molteni, F., Thawer, S., Mohamed, A., Mandike, R., Giorgi, E., Macharia, P.M., Smith, T.A., Lengeler, C., Pothin, E., 2020. Simulating the council-specific impact of anti-malaria interventions: A tool to support malaria strategic planning in Tanzania. PLoS ONE 15, e0228469. https://doi.org/10.1371/journal.pone.0228469
