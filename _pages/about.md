@@ -23,16 +23,14 @@ The close collaboration with the Tanzanian program, and recently interactions wi
 In her current position, she works on COVID-19 transmission and disease modeling in Illinois, USA as well as on estimating the impact of intermittent preventive therapies in infants in Nigeria.  
 <br/><br/>
 
-<i>Key skills</i>
-[x] Data management & analysis
-[x] Infectious disease epidemiology and public health
-[x] Software skills in R, Python, Stata, SPSS, QGIS, LaTeX, Batch scripting, HPC 
-[x] International experience
-[x] Team worker, problem solver, motivated!
+Key skills:
+~ Data management & analysis
+~ Infectious disease epidemiology and public health
+~ Software skills in R, Python, Stata, SPSS, QGIS, LaTeX, Batch scripting, HPC 
+~ International experience
+~ Team worker, problem solver, motivated!
 
-
-
-<br/><br/><br/>
+<br/>
 <i>'if you want to go fast, go alone; if you want to go far, go together' </i><br>
 <i>African proverb</i>
 
