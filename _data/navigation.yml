@@ -10,7 +10,7 @@ main:
     url: https://manuelarunge.github.io/portfolio/
     
   - title: "CV"
-    url: /_resume/CV_ManuelaRunge.pdf #https://manuelarunge.github.io/cv/
+    url: /CV_ManuelaRunge.pdf #https://manuelarunge.github.io/cv/
     
   #- title: "Research resources"
   #  url: https://manuelarunge.github.io/research_resources/

@@ -33,7 +33,7 @@ Skills:
 - Experience working internationally
 <br/><br/>
 
-<a href="https://manuelarunge.github.io/_resume/resume_ManuelaRunge.docx" download>Download Resume</a>
+<a href="/resume_ManuelaRunge.docx" download>Download Resume</a>
 
 <img src='/images/landscape_TZA1.jpg'>
 <i>If you want to go fast, go alone; if you want to go far, go together</i><br>
