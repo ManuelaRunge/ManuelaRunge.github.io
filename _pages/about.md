@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "Strategic thinker, problem solver, infectious disease epidemiologist"
+title: "Strategic thinker, problem solver, motivated"
 excerpt: "Short biography"
 author_profile: true
 redirect_from: 
@@ -8,13 +8,16 @@ redirect_from:
   - /about.html
 ---
 
+<br/>
 Hello, thank you for being here. 
 <br/>
+
 My name is Manuela Runge, I am an infectious disease epidemiologist and passionate about data analysis in health-related research.
 Many diseases and advserse health outcomes are preventable and, or treatable - that is what drives me in my work. 
 I am widely interested in using quantitative tools, from data analysis to find influencing factors for a health/disease outcome, 
 to simulation modeling to project likely impact of interventions in a population. 
 <br/>
+
 Most of my experience has been in malaria research in Sub-Saharan Africa, while I also have worked on projects related to COVID-19, West-Nile-Virus and Measles.
 In 2022 I am relocating to Switzerland and ready to take on new opportunities that allow me to leverage my past experiences and skills and to advance in my career in health research!<br/>
 <br/>
