@@ -80,9 +80,9 @@ analytics:
 
 # Site Author
 author:
-  name             : "Manuela Runge"
+  name             : "Manuela Runge, PhD"
   avatar           : "profile.png"
-  bio              : "PhD, malaria epidemiology and modelling"
+  bio              : "Infectious disease epidemiologist"
   location         : "Chicago, IL"
   employer         : "Northwestern University"
   pubmed           : "https://pubmed.ncbi.nlm.nih.gov/?term=Runge+Manuela"
@@ -106,13 +106,13 @@ author:
   orcid            : "https://orcid.org/0000-0001-9918-760X"
   pinterest        :
   soundcloud       :
-  stackoverflow    : # http://stackoverflow.com/users/123456/username
+  stackoverflow    : https://stackoverflow.com/users/5513271/manuela-r
   steam            :
   tumblr           :
   twitter          : "@RungeManuela"
   vine             :
   weibo            :
-  xing             : 
+  xing             : https://www.xing.com/profile/Manuela_Runge7
   youtube          : 
   wikipedia        :
 

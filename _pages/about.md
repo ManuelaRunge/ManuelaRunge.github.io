@@ -1,7 +1,6 @@
 ---
 permalink: /
-title: "Manuela Runge, PhD"
-subtitle: "Strategic thinker, problem solver, infectious disease epidemiologist"
+title: "Strategic thinker, problem solver, infectious disease epidemiologist"
 excerpt: "Short biography"
 author_profile: true
 redirect_from: 
@@ -10,14 +9,15 @@ redirect_from:
 ---
 
 Hello, thank you for being here. 
+<br/>
 My name is Manuela Runge, I am an infectious disease epidemiologist and passionate about data analysis in health-related research.
 Many diseases and advserse health outcomes are preventable and, or treatable - that is what drives me in my work. 
 I am widely interested in using quantitative tools, from data analysis to find influencing factors for a health/disease outcome, 
 to simulation modeling to project likely impact of interventions in a population. 
+<br/>
 Most of my experience has been in malaria research in Sub-Saharan Africa, while I also have worked on projects related to COVID-19, West-Nile-Virus and Measles.
 In 2022 I am relocating to Switzerland and ready to take on new opportunities that allow me to leverage my past experiences and skills and to advance in my career in health research!<br/>
 <br/>
-
 Currently I am a postdoctoral researcher in the [NU malaria modeling group](https://www.numalariamodeling.org/) at Northwestern University, Chicago, USA. 
 I hold a Ph.D. and M.Sc.'s degree in Epidemiology from the [Swiss Tropical and Public Health Institute](https://www.swisstph.ch/en/) and University of Basel, Switzeland.
 I received a B.Sc. in [Health Sciences at the University of Applied Sciences Hamburg](https://www.haw-hamburg.de/en/university/faculty-of-life-sciences/departments/health-sciences/). 
