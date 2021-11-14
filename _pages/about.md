@@ -1,6 +1,7 @@
 ---
 permalink: /
-title: "Manuela Runge"
+title: "Manuela Runge, PhD"
+subtitle: "Strategic thinker, problem solver, infectious disease epidemiologist"
 excerpt: "Short biography"
 author_profile: true
 redirect_from: 
@@ -8,29 +9,28 @@ redirect_from:
   - /about.html
 ---
 
-Dr Manuela Runge is a postdoctoral fellow in the [NU malaria modeling group](https://www.numalariamodeling.org/) at Northwestern University, Chicago, USA. 
-She received her PhD and MSc in Epidemiology from the [Swiss Tropical and Public Health Institute](https://www.swisstph.ch/en/) and University of Basel, Switzeland.
-She studied Health Sciences at the University of Applied Sciences Hamburg as her undergraduate. 
+Hello, thank you for being here. 
+My name is Manuela Runge, I am an infectious disease epidemiologist and passionate about data analysis in health-related research.
+Many diseases and advserse health outcomes are preventable and, or treatable - that is what drives me in my work. 
+I am widely interested in using quantitative tools, from data analysis to find influencing factors for a health/disease outcome, 
+to simulation modeling to project likely impact of interventions in a population. 
+Most of my experience has been in malaria research in Sub-Saharan Africa, while I also have worked on projects related to COVID-19, West-Nile-Virus and Measles.
+In 2022 I am relocating to Switzerland and ready to take on new opportunities that allow me to leverage my past experiences and skills and to advance in my career in health research!<br/>
 <br/>
 
-Most of her research focused on malaria in Tanzania, where she was part of the study team for a nation-wide School Malaria Parasitaemia Survey. 
-During her PhD, she provided mathematical modelling support to the National Malaria Control Programme in Tanzania. 
-The modelling support included the use of modelling for strategic planning by using country data for district-specific impact predictions of malaria control interventions. 
-Dr Runge participated in several stakeholder meetings for the revision of the national malaria control strategic plan in Tanzania. 
+Currently I am a postdoctoral researcher in the [NU malaria modeling group](https://www.numalariamodeling.org/) at Northwestern University, Chicago, USA. 
+I hold a Ph.D. and M.Sc.'s degree in Epidemiology from the [Swiss Tropical and Public Health Institute](https://www.swisstph.ch/en/) and University of Basel, Switzeland.
+I received a B.Sc. in [Health Sciences at the University of Applied Sciences Hamburg](https://www.haw-hamburg.de/en/university/faculty-of-life-sciences/departments/health-sciences/). 
 <br/>
 
-The close collaboration with the Tanzanian program, and recently interactions with the Illinois Department of Public Health provided her with insights into local policy and how modelling outputs can be of value in the decision making process. 
-In her current position, she works on COVID-19 transmission and disease modeling in Illinois, USA as well as on estimating the impact of intermittent preventive therapies in infants in Nigeria.  
+Skills:
+- Expertise in infectious disease epidemiology and public health
+- Extensive experience in data management and data analysis
+- Proficient in R, Python, Stata, SPSS, QGIS, LaTeX, Batch scripting, HPC 
+- Experience working internationally
 <br/><br/>
 
-Key skills:
-~ Data management & analysis
-~ Infectious disease epidemiology and public health
-~ Software skills in R, Python, Stata, SPSS, QGIS, LaTeX, Batch scripting, HPC 
-~ International experience
-~ Team worker, problem solver, motivated!
-
-<br/>
-<i>'if you want to go fast, go alone; if you want to go far, go together' </i><br>
+<img src='/images/landscape_TZA1.jpg'>
+<i>If you want to go fast, go alone; if you want to go far, go together</i><br>
 <i>African proverb</i>
 
