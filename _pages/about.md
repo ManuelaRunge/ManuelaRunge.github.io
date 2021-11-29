@@ -9,7 +9,7 @@ redirect_from:
 ---
 
 <br/>
-Hello, thank you for being here. 
+Hello, thank you for stopping by. 
 <br/>
 
 My name is Manuela Runge, I am an infectious disease epidemiologist and passionate about data analysis in health-related research.
