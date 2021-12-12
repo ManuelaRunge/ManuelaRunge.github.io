@@ -5,14 +5,16 @@ collection: portfolio
 ---
 
 
-Early in March, our team led by Professor Jaline Gerardin joined the Illinois COVID-19 modelling task force, which works with the Illinois Governor’s Office and Illinois Department of Health (IDPH). 
-Together with three other modelling groups in Illinois, we provide COVID case and hospital predictions that are updated every week. 
-We aim to provide early warning signs in order to prevent exceeding hospital and ICU bed availability. 
-In additional to our weekly forecasts, we also work with IDPH on selecting and interpreting epidemic indicators, planning for hospital overflow needs, 
+Early in March 2020, our team led by Professor Jaline Gerardin joined the Illinois COVID-19 modelling task force, which works with the Illinois Governor’s Office and Illinois Department of Health (IDPH). 
+Together with three other modelling groups in Illinois, we provided COVID case and hospital predictions that were updated weekly. 
+With our model outputs we aimed to provide additional early warning signs to prevent exceeding hospital and ICU bed availability. 
+Together with three other modeling groups in Illinois, we worked with IDPH on selecting and interpreting epidemic indicators, planning for hospital overflow needs, 
 quantifying the impact of delayed test turnaround time on overall death counts, designing sentinel surveillance systems, 
 and understanding how good contact tracing needs to be to contain spread.
 
 The model and analysis script can be found in the public GitHub repository  [here](https://github.com/numalariamodeling/covid-chicago)!
+
+Related publications: [Runge et al medRXiv, 2021](https://manuelarunge.github.io//publication/2021-06-27-COVIDICU)
 
 <!-- 
 Add more text on my role and lessons learned
