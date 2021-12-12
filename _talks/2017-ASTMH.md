@@ -9,5 +9,5 @@ location: "Baltimore, USA"
 ---
 
 
-
-test ASTMH talk test [recording](https://mesamalaria.org/resource-hub/astmh-2017-manuela-runge-varying-impact-malaria-interventions-district-level)
+First attendance and talk at ASTMH! Click [here](https://mesamalaria.org/resource-hub/astmh-2017-manuela-runge-varying-impact-malaria-interventions-district-level) for the recording (hosted at the MESA website).
+<br/><img src='/images/2017_ASTMH.png'>

@@ -9,3 +9,5 @@ date: 2021-11-18
 location: "virtual conference"
 ---
 
+
+<br/><img src='/images/20211022_MR_ASTMH.png'>

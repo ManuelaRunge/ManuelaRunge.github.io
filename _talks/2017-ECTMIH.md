@@ -7,3 +7,6 @@ venue: "ECTMIH"
 date: 2017-10-19
 location: "Antwerp, Belgium"
 ---
+
+
+<br/><img src='/images/Poster_SMPS_ECTMIH_FChaky_MRunge.png'>
