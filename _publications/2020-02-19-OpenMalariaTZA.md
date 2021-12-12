@@ -2,7 +2,7 @@
 title: "Simulating the council-specific impact of anti-malaria interventions: a tool to support malaria strategic planning in Tanzania"
 collection: publications
 permalink: /publication/2020-02-19-OpenMalariaTZA
-excerpt: 'This paper is about applying mathematical modelling to support strategic planning in Tanzania'
+excerpt: ''
 date: 2020-02-19
 venue: 'PLoS ONE'
 paperurl: 'https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0228469'
