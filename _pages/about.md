@@ -39,3 +39,9 @@ Skills:
 <i>If you want to go fast, go alone; if you want to go far, go together</i><br>
 <i>African proverb</i>
 
+
+
+<!-- <a class="twitter-timeline" href="https://twitter.com/RungeManuela?ref_src=twsrc%5Etfw">Tweets by RungeManuela</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> -->
+
+
+
