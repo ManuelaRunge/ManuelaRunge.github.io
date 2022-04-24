@@ -24,15 +24,15 @@ My international (in-country) work experience includes Germany, Switzerland, Tan
 Currently I continue my postdoctoral research at the [NU malaria modeling group](https://www.numalariamodeling.org/) at Northwestern University, Chicago, USA as an external contractor working remotely from Switzerland.
 I hold a Ph.D. and M.Sc.'s degree in Epidemiology from the [Swiss Tropical and Public Health Institute](https://www.swisstph.ch/en/) and University of Basel, Switzeland.
 I received a B.Sc. in [Health Sciences at the University of Applied Sciences Hamburg](https://www.haw-hamburg.de/en/university/faculty-of-life-sciences/departments/health-sciences/). 
+<br/><br/>
+
+
+- <a href="/resume_ManuelaRunge.docx" download>Download resume</a> 
+- Learn more about my [professional objectives and purpose](https://manuelarunge.github.io/collaboration/). 
 <br/>
-
-
-<a href="/resume_ManuelaRunge.docx" download>Download Resume</a>
-
+  
 <img src='/images/100_0324_edited_wide_resized.JPG'>
 
-
-<br/>
 <i>Health is not everything but without health everything is nothing</i><br>
 <i>Arthur Schopenhauer 1788-1860</i>
 
