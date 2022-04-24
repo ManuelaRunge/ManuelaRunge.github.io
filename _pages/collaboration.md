@@ -1,7 +1,8 @@
 ---
-permalink: /collaboration
+permalink: /collaboration/
 title: "Let's work together"
 excerpt: ""
+author_profile: true
 ---
 
 #### _Open to collaborate on interesting and relevant global public health research projects_
