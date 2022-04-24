@@ -4,11 +4,7 @@ title: "Let's work together"
 excerpt: ""
 ---
 
-
-
-<br/>
-
-##### _Open to collaborate on interesting and relevant global public health research projects_
+#### _Open to collaborate on interesting and relevant global public health research projects_
 <br/>
 
 
