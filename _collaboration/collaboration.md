@@ -1,8 +1,7 @@
 ---
+permalink: /collaboration
 title: "Let's work together"
 excerpt: ""
-permalink: /collaboration/
-author_profile: true
 ---
 
 
