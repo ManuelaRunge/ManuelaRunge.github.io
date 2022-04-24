@@ -12,6 +12,9 @@ main:
   - title: "CV"
     url: /CV_ManuelaRunge.pdf #https://manuelarunge.github.io/cv/
     
+  - title: "Collaboration"
+    url: https://manuelarunge.github.io/collaboration/
+    
   #- title: "Research resources"
   #  url: https://manuelarunge.github.io/research_resources/
 
