@@ -6,7 +6,6 @@ author_profile: true
 ---
 
 ### _Open to collaborate on interesting and relevant global public health research projects_  
-<span style="color:#0098cc">_Manuela Runge GmbH_</span>
 
 <br/>  
 
