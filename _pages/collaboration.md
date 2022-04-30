@@ -1,20 +1,21 @@
 ---
 permalink: /collaboration/
-title: "Let's work together"
+title: "Let's work together!"
 excerpt: ""
 author_profile: true
 ---
 
-#### _Open to collaborate on interesting and relevant global public health research projects_
-<br/>
+### _Open to collaborate on interesting and relevant global public health research projects_  
+#####<span style="color:#0098cc">_Manuela Runge GmbH_</span>
 
+<br/>  
 
 ### My Mission
 - To support program oriented research activities in the field of infectious disease epidemiology, with primary focus on applied mathematical 
 modeling and strategic planning of malaria interventions in Sub-Saharan Africa.
 
 ### My Vision
-- No one should die or be severely impacted from infectious diseases that are preventable and treatable.
+- Maximized intervention impact to reduce burden of infectious diseases based on best-informed decision-making processes in a given setting.
 
 ### My Principles 
 - To contribute to an open environment that allows learning from each other and support each other to grow.
@@ -32,7 +33,8 @@ modeling and strategic planning of malaria interventions in Sub-Saharan Africa.
 - Expertise in infectious disease epidemiology and public health, particularly in malaria.
 - Extensive experience in data management, analysis, visualization and communication.
 - Technical skills in R, Python, Stata, SPSS, QGIS, LaTeX, Batch scripting, HPC 
-- Genuine interest in the success of any team I work in and easily integrate myself into teams to work towards shared goals.
+- Natural integration into teams to work towards achieving shared goals.
+- Creative and proactive mindset to push activities forward.
  
 
 <br/><br/>
