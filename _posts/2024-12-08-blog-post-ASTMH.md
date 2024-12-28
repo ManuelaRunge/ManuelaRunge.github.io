@@ -1,7 +1,7 @@
 ---
 title: 'Recap of the ASTMH 2024 Annual Meeting'
 date: 2024-12-08
-permalink: /blog/2024-12-08-blog-post
+permalink: /posts/2024-12-08-blog-post-ASTMH/
 tags:
   - conference
   - reports

@@ -18,8 +18,8 @@ main:
   #- title: "Research resources"
   #  url: https://manuelarunge.github.io/research_resources/
 
-  - title: "Blog"
-    url: https://manuelarunge.github.io/blog/
+  - title: "Blog Posts"
+    url: /year-archive/
     
   #- title: "Guide"
   #  url: /markdown/
