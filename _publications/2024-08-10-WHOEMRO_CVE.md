@@ -3,7 +3,7 @@ title: "COVID-19 Vaccine Effectiveness Studies against Symptomatic and Severe Ou
 collection: publications
 permalink: /publication/2024-08-10-WHOEMRO_CVE
 excerpt: ''
-date: 2014-08-10
+date: 2024-08-10
 venue: 'Vaccines'
 paperurl: 'https://doi.org/10.3390/vaccines12080906'
 citation: 'Runge, M.; Karimian, Z.; Kheirandish, M.; Borghi, G.; Wodniak, N.; Fahmy, K.; Mantel, C.; Cherian, T.; Nabil Ahmed Said, Z.; Najafi, F.; et al. COVID-19 Vaccine Effectiveness Studies against Symptomatic and Severe Outcomes during the Omicron Period in Four Countries in the Eastern Mediterranean Region. Vaccines 2024, 12, 906.'

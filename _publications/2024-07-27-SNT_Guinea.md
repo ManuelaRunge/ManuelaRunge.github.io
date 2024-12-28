@@ -3,7 +3,7 @@ title: "Subnational tailoring of malaria interventions to prioritize the malaria
 collection: publications
 permalink: /publication/2024-07-27-SNT_Guinea
 excerpt: ''
-date: 2014-07-24
+date: 2024-07-24
 venue: 'medRxiv (preprint)'
 paperurl: 'https://www.medrxiv.org/content/10.1101/2024.06.26.24309532v1'
 citation: 'Diallo OO, Diallo A, Toh KB, Diakité N, Dioubaté M, Runge M, et al. Subnational tailoring of malaria interventions to prioritize the malaria response in Guinea. medRxiv; 2024. p. 2024.06.26.24309532. doi:10.1101/2024.06.26.24309532'
