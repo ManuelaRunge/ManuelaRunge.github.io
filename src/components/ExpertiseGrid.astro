@@ -1,0 +1,70 @@
+---
+import { expertise } from "@/site.config";
+---
+
+<section class="section expertise">
+  <div class="container">
+    <p class="section-label">Expertise</p>
+    <h2 class="section-title">What I work on</h2>
+    <div class="expertise__grid">
+      {
+        expertise.map((item, index) => (
+          <article class="expertise__card">
+            <span class="expertise__index">{String(index + 1).padStart(2, "0")}</span>
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .expertise {
+    background: var(--bg-elevated);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .expertise__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .expertise__card {
+    position: relative;
+    padding: 2rem 1.75rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: linear-gradient(180deg, #fff, #f7fbfa);
+    transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .expertise__card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(15, 118, 110, 0.35);
+  }
+
+  .expertise__index {
+    display: inline-block;
+    margin-bottom: 1.2rem;
+    color: var(--coral);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+  }
+
+  .expertise__card h3 {
+    margin: 0 0 0.75rem;
+    font-size: 1.15rem;
+    color: var(--text);
+  }
+
+  .expertise__card p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+  }
+</style>

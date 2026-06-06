@@ -1,0 +1,165 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Hero from "@/components/Hero.astro";
+import ExpertiseGrid from "@/components/ExpertiseGrid.astro";
+import CountriesStrip from "@/components/CountriesStrip.astro";
+import ContentCard from "@/components/ContentCard.astro";
+import { getCollection } from "astro:content";
+import { site } from "@/site.config";
+
+const publications = (await getCollection("publications"))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const talks = (await getCollection("talks"))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const projects = await getCollection("portfolio");
+---
+
+<BaseLayout>
+  <Hero />
+  <ExpertiseGrid />
+  <CountriesStrip />
+
+  <section class="section" id="publications">
+    <div class="container">
+      <p class="section-label">Research</p>
+      <h2 class="section-title">Publications</h2>
+      <div class="card-grid">
+        {
+          publications.map((pub) => (
+            <ContentCard
+              title={pub.data.title}
+              meta={`${pub.data.venue ?? "Publication"} · ${pub.data.date.getFullYear()}`}
+              description={
+                pub.data.excerpt ||
+                (typeof pub.body === "string"
+                  ? pub.body.slice(0, 160).replace(/\n/g, " ") + "…"
+                  : undefined)
+              }
+              href={pub.data.paperurl ?? `/publications/#${pub.id}`}
+              external={!!pub.data.paperurl}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="talks">
+    <div class="container">
+      <p class="section-label">Presentations</p>
+      <h2 class="section-title">Talks</h2>
+      <div class="card-grid">
+        {
+          talks.map((talk) => (
+            <ContentCard
+              title={talk.data.title}
+              meta={`${talk.data.venue ?? "Talk"} · ${talk.data.date.getFullYear()}${talk.data.location ? ` · ${talk.data.location}` : ""}`}
+              href={`/talks/#${talk.id}`}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="portfolio">
+    <div class="container">
+      <p class="section-label">Portfolio</p>
+      <h2 class="section-title">Selected projects</h2>
+      <div class="card-grid">
+        {
+          projects.map((project) => (
+            <ContentCard
+              title={project.data.title}
+              meta="Project"
+              description={
+                project.data.excerpt ||
+                (typeof project.body === "string"
+                  ? project.body.slice(0, 180).replace(/\n/g, " ") + "…"
+                  : undefined)
+              }
+              href={`/portfolio/#${project.id}`}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="quote-section">
+    <div class="quote-section__image">
+      <img src={site.quoteImage} alt="Field work" loading="lazy" />
+      <div class="quote-section__overlay"></div>
+    </div>
+    <blockquote class="quote-section__text container">
+      <p>Health is not everything but without health everything is nothing</p>
+      <cite>Arthur Schopenhauer, 1788–1860</cite>
+    </blockquote>
+  </section>
+</BaseLayout>
+
+<style>
+  .section--alt {
+    background: linear-gradient(180deg, #ffffff, #eef7f5);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  #publications,
+  #talks,
+  #portfolio {
+    scroll-margin-top: calc(var(--header-height) + 1.5rem);
+  }
+
+  .quote-section {
+    position: relative;
+    min-height: 46vh;
+    display: flex;
+    align-items: center;
+  }
+
+  .quote-section__image {
+    position: absolute;
+    inset: 0;
+  }
+
+  .quote-section__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .quote-section__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(16, 43, 46, 0.88), rgba(16, 43, 46, 0.58));
+  }
+
+  .quote-section__text {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    padding: 5rem 0;
+    text-align: center;
+  }
+
+  .quote-section__text p {
+    margin: 0 0 1rem;
+    font-family: var(--font-display);
+    font-size: clamp(1.7rem, 4vw, 2.6rem);
+    font-style: italic;
+    line-height: 1.35;
+    max-width: 28ch;
+    margin-inline: auto;
+  }
+
+  .quote-section__text cite {
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.72);
+    font-style: normal;
+  }
+</style>

@@ -1,0 +1,72 @@
+---
+import { site, social } from "@/site.config";
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="footer__inner container">
+    <div class="footer__brand">
+      <p class="footer__name">{site.name}</p>
+      <p class="footer__tagline">{site.tagline}</p>
+    </div>
+    <div class="footer__links">
+      <a href={social.googlescholar}>Google Scholar</a>
+      <a href={social.orcid}>ORCID</a>
+      <a href={social.linkedin}>LinkedIn</a>
+      <a href={social.github}>GitHub</a>
+      <a href={`mailto:${site.email}`}>Email</a>
+    </div>
+    <p class="footer__copy">&copy; {year} {site.name}. All rights reserved.</p>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    margin-top: 4rem;
+    padding: 3rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    background: #102b2e;
+    color: #fff;
+  }
+
+  .footer__inner {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .footer__name {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+  }
+
+  .footer__tagline {
+    margin: 0.25rem 0 0;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+  }
+
+  .footer__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+  }
+
+  .footer__links a {
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .footer__links a:hover {
+    color: #8ee0d4;
+  }
+
+  .footer__copy {
+    margin: 0;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.58);
+  }
+</style>

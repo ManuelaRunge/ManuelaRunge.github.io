@@ -1,0 +1,64 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { getCollection, render } from "astro:content";
+
+const projects = await getCollection("portfolio");
+---
+
+<BaseLayout title="Portfolio" description="Selected research and data projects.">
+  <div class="page-header">
+    <div class="container">
+      <h1>Portfolio</h1>
+      <p>Selected projects spanning field work, data analysis, and modeling.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="portfolio-list">
+        {
+          await Promise.all(
+            projects.map(async (project) => {
+              const { Content } = await render(project);
+              return (
+                <article class="portfolio-item">
+                  <h2>{project.data.title}</h2>
+                  <div class="portfolio-item__body prose">
+                    <Content />
+                  </div>
+                </article>
+              );
+            })
+          )
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .portfolio-list {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .portfolio-item {
+    padding: 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--bg-card);
+    box-shadow: 0 8px 26px rgba(24, 46, 56, 0.05);
+  }
+
+  .portfolio-item h2 {
+    margin: 0 0 1.25rem;
+    font-size: 1.5rem;
+    color: var(--accent);
+  }
+
+  .portfolio-item__body :global(img) {
+    margin: 1.5rem 0;
+    border-radius: 8px;
+    max-width: 700px;
+  }
+</style>

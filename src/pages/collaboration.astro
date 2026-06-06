@@ -1,0 +1,195 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { site } from "@/site.config";
+---
+
+<BaseLayout title="Contact" description="Contact Manuela Runge about global public health research projects.">
+  <div class="page-header">
+    <div class="container">
+      <h1>Contact</h1>
+      <p>Open to collaborate on interesting and relevant global public health research projects.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container collab">
+      <div class="collab__grid">
+        <article class="collab__card">
+          <h2>Mission</h2>
+          <p>
+            To support program-oriented research activities in infectious disease
+            epidemiology, with primary focus on applied mathematical modeling and
+            strategic planning of malaria interventions in Sub-Saharan Africa.
+          </p>
+        </article>
+
+        <article class="collab__card">
+          <h2>Vision</h2>
+          <p>
+            Maximized intervention impact to reduce burden of infectious diseases based
+            on best-informed decision-making processes in a given setting.
+          </p>
+        </article>
+
+        <article class="collab__card">
+          <h2>Principles</h2>
+          <ul>
+            <li>Contribute to an open environment for learning and growth.</li>
+            <li>Produce high quality output through strategic work and critical review.</li>
+            <li>Continuously strive towards progress and improvement.</li>
+          </ul>
+        </article>
+
+        <article class="collab__card">
+          <h2>Goals</h2>
+          <ul>
+            <li>Grow a professional network in global infectious diseases.</li>
+            <li>Share research outcomes through journal papers and reports.</li>
+            <li>Apply integrated health approaches and reduce working in silos.</li>
+          </ul>
+        </article>
+      </div>
+
+      <article class="collab__skills">
+        <h2>Value and skills I bring</h2>
+        <div class="collab__skills-grid">
+          <div>
+            <h3>Domain expertise</h3>
+            <p>Infectious disease epidemiology and public health, particularly malaria.</p>
+          </div>
+          <div>
+            <h3>Data & analysis</h3>
+            <p>Data management, analysis, visualization, and communication.</p>
+          </div>
+          <div>
+            <h3>Technical tools</h3>
+            <p>R, Python, Stata, SPSS, QGIS, LaTeX, batch scripting, HPC.</p>
+          </div>
+          <div>
+            <h3>Working style</h3>
+            <p>Team integration, creative and proactive mindset to push activities forward.</p>
+          </div>
+        </div>
+      </article>
+
+      <div class="collab__cta">
+        <a href={`mailto:${site.email}`} class="btn btn--primary">Get in touch</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="collab__visual">
+    <img src="/images/landscape_TZA1.jpg" alt="Tanzania landscape" loading="lazy" />
+    <div class="collab__visual-overlay">
+      <blockquote>
+        <p>If you want to go fast, go alone; if you want to go far, go together</p>
+        <cite>African proverb</cite>
+      </blockquote>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .collab__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .collab__card {
+    padding: 2rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    box-shadow: 0 12px 35px rgba(24, 46, 56, 0.07);
+  }
+
+  .collab__card h2 {
+    margin: 0 0 1rem;
+    font-size: 1.2rem;
+    color: var(--accent);
+  }
+
+  .collab__card p,
+  .collab__card ul {
+    margin: 0;
+    color: var(--text-muted);
+  }
+
+  .collab__card ul {
+    padding-left: 1.2rem;
+  }
+
+  .collab__skills h2 {
+    margin: 0 0 1.5rem;
+    font-size: clamp(1.6rem, 3vw, 2.25rem);
+  }
+
+  .collab__skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .collab__skills-grid h3 {
+    margin: 0 0 0.5rem;
+    font-size: 0.95rem;
+    color: var(--blue);
+  }
+
+  .collab__skills-grid p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+  }
+
+  .collab__cta {
+    margin-top: 2.5rem;
+  }
+
+  .collab__visual {
+    position: relative;
+    min-height: 42vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .collab__visual img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .collab__visual-overlay {
+    position: relative;
+    z-index: 1;
+    padding: 4rem 2rem;
+    text-align: center;
+    background: linear-gradient(90deg, rgba(16, 43, 46, 0.9), rgba(16, 43, 46, 0.58));
+    width: 100%;
+  }
+
+  .collab__visual-overlay blockquote {
+    margin: 0;
+  }
+
+  .collab__visual-overlay p {
+    margin: 0 0 0.75rem;
+    font-family: var(--font-display);
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    font-style: italic;
+    color: #fff;
+  }
+
+  .collab__visual-overlay cite {
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.72);
+    font-style: normal;
+  }
+</style>

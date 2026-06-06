@@ -1,0 +1,153 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { site, social } from "@/site.config";
+---
+
+<BaseLayout title="About" description="About Manuela Runge — infectious disease epidemiologist.">
+  <div class="page-header">
+    <div class="container">
+      <h1>About</h1>
+      <p>Infectious disease epidemiologist passionate about data-driven public health.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container about">
+      <div class="about__intro prose">
+        <p>
+          I am Manuela Runge, an infectious disease epidemiologist focused on using
+          data and quantitative methods to support public health decision-making. My work
+          is driven by the knowledge that many diseases and adverse health outcomes are
+          preventable, treatable, or reducible through well-informed interventions.
+        </p>
+        <p>
+          I apply a broad range of quantitative tools, from statistical analysis that
+          identifies factors influencing health and disease outcomes to simulation
+          modeling that projects the potential impact of interventions in populations.
+        </p>
+        <p>
+          Much of my experience is in malaria research in Sub-Saharan Africa. I have also
+          contributed to projects on neglected tropical diseases, including onchocerciasis
+          and lymphatic filariasis, as well as COVID-19, West Nile virus, and measles. My
+          international work experience includes Germany, Switzerland, Tanzania, and the
+          United States.
+        </p>
+      </div>
+
+      <div class="about__details">
+        <div class="about__card">
+          <h3>Current roles</h3>
+          <ul>
+            <li>
+              <strong>MM Global Health Consulting</strong> — vaccine-preventable
+              infectious diseases
+            </li>
+            <li>
+              <strong>Runge Infectious Disease Research Analytics (RIDA)</strong> —
+              company owner since 2022
+            </li>
+            <li>
+              <strong>Northwestern University</strong> — ongoing malaria modeling
+              collaboration
+            </li>
+          </ul>
+        </div>
+
+        <div class="about__card">
+          <h3>Education</h3>
+          <ul>
+            <li>Ph.D. & M.Sc. in Epidemiology — Swiss TPH & University of Basel</li>
+            <li>B.Sc. in Health Sciences — University of Applied Sciences Hamburg</li>
+          </ul>
+        </div>
+
+        <div class="about__card">
+          <h3>Connect</h3>
+          <ul class="about__links">
+            <li><a href={`mailto:${site.email}`}>{site.email}</a></li>
+            <li><a href={social.googlescholar}>Google Scholar</a></li>
+            <li><a href={social.orcid}>ORCID</a></li>
+            <li><a href={social.linkedin}>LinkedIn</a></li>
+            <li><a href={social.researchgate}>ResearchGate</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="about__actions">
+        <a href="/resume_ManuelaRunge.docx" class="btn btn--primary" download>Download resume</a>
+        <a href="/CV_ManuelaRunge.pdf" class="btn">View CV (PDF)</a>
+        <a href="/collaboration/" class="btn">Collaborate</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .about {
+    display: grid;
+    gap: 3rem;
+  }
+
+  .about__intro {
+    font-size: 1.08rem;
+  }
+
+  .about__intro p:first-child {
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  .about__intro p:first-child::first-letter {
+    float: left;
+    padding: 0.12rem 0.35rem 0 0;
+    font-family: var(--font-display);
+    font-size: 4rem;
+    line-height: 0.8;
+    color: var(--accent);
+  }
+
+  .about__details {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .about__card {
+    padding: 1.75rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    box-shadow: 0 12px 35px rgba(24, 46, 56, 0.07);
+  }
+
+  .about__card h3 {
+    margin: 0 0 1rem;
+    font-size: 1.08rem;
+    color: var(--accent);
+  }
+
+  .about__card ul {
+    margin: 0;
+    padding-left: 1.2rem;
+    color: var(--text-muted);
+  }
+
+  .about__card li {
+    margin-bottom: 0.5rem;
+  }
+
+  .about__links {
+    list-style: none;
+    padding: 0 !important;
+  }
+
+  .about__links li {
+    margin-bottom: 0.35rem;
+  }
+
+  .about__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+</style>

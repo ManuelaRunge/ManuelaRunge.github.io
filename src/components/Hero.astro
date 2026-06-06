@@ -1,0 +1,168 @@
+---
+import { site } from "@/site.config";
+---
+
+<section class="hero">
+  <div class="hero__bg">
+    <img src={site.heroImage} alt="" loading="eager" />
+    <div class="hero__overlay"></div>
+  </div>
+  <div class="hero__content container">
+    <div class="hero__copy">
+      <p class="hero__eyebrow">Infectious disease epidemiologist</p>
+      <h1 class="hero__title">{site.title}</h1>
+      <p class="hero__subtitle">{site.description}</p>
+      <div class="hero__actions">
+        <a href="/#publications" class="btn btn--primary">View Publications</a>
+        <a href="/collaboration/" class="btn">Contact</a>
+      </div>
+    </div>
+    <aside class="hero__panel" aria-label="Research focus summary">
+      <img src={site.profileImage} alt="Manuela Runge" />
+      <div>
+        <p class="hero__panel-label">Applied modeling for public health decisions</p>
+        <ul>
+          <li><strong>Malaria</strong><span>Intervention impact and prioritization</span></li>
+          <li><strong>VPDs</strong><span>Analytics for global health consulting</span></li>
+          <li><strong>Tools</strong><span>R, Python, simulation and visualization</span></li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: 92vh;
+    display: flex;
+    align-items: center;
+    padding: calc(var(--header-height) + 4rem) 0 4rem;
+    overflow: hidden;
+  }
+
+  .hero__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .hero__bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero__overlay {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(90deg, rgba(246, 248, 247, 0.96) 0%, rgba(246, 248, 247, 0.82) 45%, rgba(246, 248, 247, 0.12) 100%),
+      linear-gradient(180deg, rgba(246, 248, 247, 0.35), rgba(15, 118, 110, 0.25));
+  }
+
+  .hero__content {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 380px);
+    align-items: end;
+    gap: 3rem;
+  }
+
+  .hero__eyebrow {
+    margin: 0 0 1rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .hero__title {
+    margin: 0 0 1.25rem;
+    font-size: clamp(3rem, 8vw, 6.3rem);
+    font-weight: 700;
+    line-height: 0.95;
+    max-width: 8ch;
+  }
+
+  .hero__subtitle {
+    margin: 0 0 2rem;
+    font-size: clamp(1.08rem, 2vw, 1.25rem);
+    line-height: 1.6;
+    color: var(--text-muted);
+    max-width: 52ch;
+  }
+
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .hero__panel {
+    display: grid;
+    gap: 1.2rem;
+    padding: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.72);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.82);
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(16px);
+  }
+
+  .hero__panel img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 6px;
+  }
+
+  .hero__panel-label {
+    margin: 0 0 0.9rem;
+    color: var(--text);
+    font-weight: 700;
+    line-height: 1.35;
+  }
+
+  .hero__panel ul {
+    display: grid;
+    gap: 0.75rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .hero__panel li {
+    display: grid;
+    grid-template-columns: 5rem 1fr;
+    gap: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .hero__panel strong {
+    color: var(--accent);
+  }
+
+  .hero__panel span {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+  }
+
+  @media (max-width: 860px) {
+    .hero {
+      align-items: flex-start;
+      min-height: auto;
+    }
+
+    .hero__content {
+      grid-template-columns: 1fr;
+    }
+
+    .hero__panel {
+      max-width: 420px;
+    }
+  }
+</style>
