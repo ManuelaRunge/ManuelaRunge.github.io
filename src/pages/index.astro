@@ -1,0 +1,289 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Hero from "@/components/Hero.astro";
+import ExpertiseGrid from "@/components/ExpertiseGrid.astro";
+import CountriesStrip from "@/components/CountriesStrip.astro";
+import ContentCard from "@/components/ContentCard.astro";
+import { getCollection } from "astro:content";
+import { site } from "@/site.config";
+
+const publications = (await getCollection("publications"))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const talks = (await getCollection("talks"))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const projects = await getCollection("portfolio");
+
+const posts = (await getCollection("posts"))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const selectedPublications = publications.slice(0, 6);
+const selectedProjects = projects.slice(0, 3);
+const selectedTalks = talks.slice(0, 6);
+const selectedPosts = posts.slice(0, 3);
+---
+
+<BaseLayout>
+  <Hero />
+  <ExpertiseGrid />
+  <CountriesStrip />
+
+  <section class="section" id="selected-work">
+    <div class="container">
+      <div class="section-heading">
+        <div>
+          <p class="section-label">Selected work, publications and peer review</p>
+          <h2 class="section-title">Research outputs and analytical contributions</h2>
+        </div>
+        <a href="/publications/" class="btn">All publications</a>
+      </div>
+      <div class="card-grid">
+        {
+          selectedPublications.map((pub) => (
+            <ContentCard
+              title={pub.data.title}
+              meta={`${pub.data.venue ?? "Publication"} · ${pub.data.date.getFullYear()}`}
+              description={
+                pub.data.excerpt ||
+                (typeof pub.body === "string"
+                  ? pub.body.slice(0, 160).replace(/\n/g, " ") + "…"
+                  : undefined)
+              }
+              href={pub.data.paperurl ?? `/publications/#${pub.id}`}
+              external={!!pub.data.paperurl}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--sand" id="portfolio">
+    <div class="container">
+      <div class="section-heading">
+        <div>
+          <p class="section-label">Research trajectory</p>
+          <h2 class="section-title">Selected projects and fields of work</h2>
+        </div>
+        <a href="/portfolio/" class="btn">View portfolio</a>
+      </div>
+      <div class="card-grid">
+        {
+          selectedProjects.map((project) => (
+            <ContentCard
+              title={project.data.title}
+              meta="Project"
+              description={
+                project.data.excerpt ||
+                (typeof project.body === "string"
+                  ? project.body.slice(0, 180).replace(/\n/g, " ") + "…"
+                  : undefined)
+              }
+              href={`/portfolio/#${project.id}`}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contributions">
+    <div class="container">
+      <p class="section-label">Writing, speaking and professional contributions</p>
+      <h2 class="section-title">Scientific exchange beyond the paper</h2>
+      <div class="contribution-grid">
+        <div>
+          <div class="mini-heading">
+            <h3>Talks and posters</h3>
+            <a href="/talks/">All talks</a>
+          </div>
+          <div class="stack-list">
+            {
+              selectedTalks.map((talk) => (
+                <ContentCard
+                  title={talk.data.title}
+                  meta={`${talk.data.venue ?? "Talk"} · ${talk.data.date.getFullYear()}${talk.data.location ? ` · ${talk.data.location}` : ""}`}
+                  href={`/talks/#${talk.id}`}
+                />
+              ))
+            }
+          </div>
+        </div>
+        <div>
+          <div class="mini-heading">
+            <h3>Research notes</h3>
+            <a href="/blog/">All writing</a>
+          </div>
+          <div class="stack-list">
+            {
+              selectedPosts.map((post) => (
+                <ContentCard
+                  title={post.data.title}
+                  meta={`${post.data.date.getFullYear()}${post.data.tags ? ` · ${post.data.tags.join(" · ")}` : ""}`}
+                  description={post.data.excerpt}
+                  href={`/blog/${post.id}/`}
+                />
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section rida-section" id="rida">
+    <div class="container rida-callout">
+      <div>
+        <p class="section-label">Professional practice pathway</p>
+        <h2>RIDA — Runge Infectious Disease Analytics</h2>
+        <p>
+          RIDA is my independent professional practice for epidemiological research,
+          analysis, evidence review and scientific communication.
+        </p>
+        <a href={site.ridaUrl} class="btn btn--primary" target="_blank" rel="noopener noreferrer">
+          Explore RIDA
+        </a>
+      </div>
+      <img src={site.turtleMark} alt="" loading="lazy" aria-hidden="true" />
+    </div>
+  </section>
+
+  <section class="section contact-strip" id="contact">
+    <div class="container contact-strip__inner">
+      <div>
+        <p class="section-label">Contact and research connections</p>
+        <h2>Open to thoughtful scientific collaboration.</h2>
+        <p>
+          I value careful questions, transparent methods and research relationships
+          that make public health evidence stronger.
+        </p>
+      </div>
+      <a href="/collaboration/" class="btn btn--primary">Contact and links</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  #methods,
+  #selected-work,
+  #contributions,
+  #rida,
+  #portfolio {
+    scroll-margin-top: calc(var(--header-height) + 1.5rem);
+  }
+
+  .section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2.4rem;
+  }
+
+  .section-heading .section-title {
+    margin-bottom: 0;
+  }
+
+  .contribution-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 1.5rem;
+    align-items: start;
+  }
+
+  .mini-heading {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: baseline;
+    margin-bottom: 1rem;
+  }
+
+  .mini-heading h3 {
+    margin: 0;
+    font-size: 1.15rem;
+  }
+
+  .mini-heading a {
+    font-size: 0.83rem;
+    font-weight: 700;
+  }
+
+  .stack-list {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .rida-section {
+    background: var(--olive);
+    color: #fffdf8;
+  }
+
+  .rida-callout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 10rem;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .rida-callout h2 {
+    margin: 0 0 1rem;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+  }
+
+  .rida-callout p {
+    max-width: 62ch;
+    margin: 0 0 1.5rem;
+    color: rgba(255, 253, 248, 0.82);
+  }
+
+  .rida-callout .section-label {
+    color: #79c9ce;
+  }
+
+  .rida-callout img {
+    width: 100%;
+    opacity: 0.28;
+    filter: brightness(0) invert(1);
+  }
+
+  .contact-strip {
+    padding-top: 4.5rem;
+  }
+
+  .contact-strip__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .contact-strip h2 {
+    margin: 0 0 0.8rem;
+    font-size: clamp(1.8rem, 4vw, 2.7rem);
+  }
+
+  .contact-strip p:not(.section-label) {
+    max-width: 60ch;
+    margin: 0;
+    color: var(--text-muted);
+  }
+
+  @media (max-width: 860px) {
+    .section-heading,
+    .contact-strip__inner {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    .contribution-grid,
+    .rida-callout {
+      grid-template-columns: 1fr;
+    }
+
+    .rida-callout img {
+      width: 7rem;
+    }
+  }
+</style>

@@ -1,0 +1,169 @@
+---
+import { site } from "@/site.config";
+---
+
+<section class="hero">
+  <div class="hero__content container">
+    <div class="hero__copy">
+      <p class="hero__eyebrow">Infectious disease epidemiologist</p>
+      <h1 class="hero__title">{site.title}</h1>
+      <p class="hero__role">{site.tagline}</p>
+      <p class="hero__subtitle">
+        I work at the intersection of epidemiology, infectious diseases, evidence
+        synthesis, modelling and analytical reasoning. My research identity is grounded
+        in careful methods, critical thinking and transparent scientific communication.
+      </p>
+      <div class="hero__actions">
+        <a href="/#selected-work" class="btn btn--primary">View selected work</a>
+        <a href="/#rida" class="btn">Explore RIDA pathway</a>
+      </div>
+    </div>
+    <aside class="hero__panel" aria-label="Research focus summary">
+      <img src={site.profileImage} alt="Manuela Runge" />
+      <div>
+        <p class="hero__panel-label">Research focus</p>
+        <ul>
+          <li><strong>Epidemiology</strong><span>Infectious disease patterns, burden and intervention questions</span></li>
+          <li><strong>Methods</strong><span>Modelling, evidence review, analysis and transparent workflows</span></li>
+          <li><strong>Writing</strong><span>Publications, peer review and scientific communication</span></li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: 88vh;
+    display: flex;
+    align-items: center;
+    padding: calc(var(--header-height) + 4rem) 0 4rem;
+    overflow: hidden;
+    background:
+      linear-gradient(120deg, rgba(242, 238, 227, 0.98) 0%, rgba(255, 253, 248, 0.94) 52%, rgba(223, 244, 242, 0.72) 100%),
+      var(--bg);
+  }
+
+  .hero::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .hero__content {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 380px);
+    align-items: end;
+    gap: 3rem;
+  }
+
+  .hero__eyebrow {
+    margin: 0 0 1rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .hero__title {
+    margin: 0 0 1.25rem;
+    font-size: clamp(3rem, 8vw, 6.3rem);
+    font-weight: 700;
+    line-height: 0.95;
+    max-width: 8ch;
+  }
+
+  .hero__role {
+    margin: 0 0 1.2rem;
+    max-width: 58ch;
+    color: var(--olive);
+    font-weight: 700;
+  }
+
+  .hero__subtitle {
+    margin: 0 0 2rem;
+    font-size: clamp(1.08rem, 2vw, 1.25rem);
+    line-height: 1.6;
+    color: var(--text-muted);
+    max-width: 52ch;
+  }
+
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .hero__panel {
+    display: grid;
+    gap: 1.2rem;
+    padding: 1rem;
+    border: 1px solid rgba(85, 87, 71, 0.18);
+    border-radius: 8px;
+    background: rgba(255, 253, 248, 0.88);
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(16px);
+  }
+
+  .hero__panel img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 6px;
+  }
+
+  .hero__panel-label {
+    margin: 0 0 0.9rem;
+    color: var(--text);
+    font-weight: 700;
+    line-height: 1.35;
+  }
+
+  .hero__panel ul {
+    display: grid;
+    gap: 0.75rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .hero__panel li {
+    display: grid;
+    grid-template-columns: 5rem 1fr;
+    gap: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .hero__panel strong {
+    color: var(--accent);
+  }
+
+  .hero__panel span {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+  }
+
+  @media (max-width: 860px) {
+    .hero {
+      align-items: flex-start;
+      min-height: auto;
+    }
+
+    .hero__content {
+      grid-template-columns: 1fr;
+    }
+
+    .hero__panel {
+      max-width: 420px;
+    }
+  }
+</style>

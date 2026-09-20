@@ -1,0 +1,47 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+const posts = (await getCollection("posts")).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+---
+
+<BaseLayout title="Blog" description="Conference recaps and research notes.">
+  <div class="page-header">
+    <div class="container">
+      <h1>Blog</h1>
+      <p>Conference recaps, reflections, and research notes.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="card-grid">
+        {
+          posts.map((post) => (
+            <article class="card">
+              <p class="card-meta">{post.data.date.getFullYear()}</p>
+              <h3>
+                <a href={`/blog/${post.id}/`}>{post.data.title}</a>
+              </h3>
+              {post.data.tags && (
+                <p class="blog-tags">{post.data.tags.join(" · ")}</p>
+              )}
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .blog-tags {
+    margin: 0.5rem 0 0;
+    font-size: 0.8rem;
+    color: var(--blue);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+</style>

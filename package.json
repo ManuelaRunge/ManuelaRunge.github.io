@@ -1,0 +1,19 @@
+{
+  "name": "manuelarunge-site",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Personal website for Manuela Runge — Astro",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "migrate": "node scripts/migrate-content.mjs"
+  },
+  "dependencies": {
+    "astro": "^5.7.10"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.4",
+    "typescript": "^5.8.3"
+  }
+}

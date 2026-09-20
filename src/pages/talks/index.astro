@@ -1,0 +1,91 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { getCollection, render } from "astro:content";
+
+const talks = (await getCollection("talks")).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+---
+
+<BaseLayout title="Talks" description="Conference presentations and posters by Manuela Runge.">
+  <div class="page-header">
+    <div class="container">
+      <h1>Talks</h1>
+      <p>Conference presentations, posters, and invited talks.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="talk-list">
+        {
+          await Promise.all(
+            talks.map(async (talk) => {
+              const { Content } = await render(talk);
+              return (
+                <article class="talk-item" id={talk.id}>
+                  <div class="talk-item__meta">
+                    <time datetime={talk.data.date.toISOString()}>
+                      {talk.data.date.toLocaleDateString("en-US", {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
+                      })}
+                    </time>
+                    {talk.data.type && <span>{talk.data.type}</span>}
+                    {talk.data.venue && <span>{talk.data.venue}</span>}
+                    {talk.data.location && <span>{talk.data.location}</span>}
+                  </div>
+                  <h2>{talk.data.title}</h2>
+                  <div class="talk-item__body prose">
+                    <Content />
+                  </div>
+                </article>
+              );
+            })
+          )
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .talk-list {
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  .talk-item {
+    padding: 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--bg-card);
+    box-shadow: 0 8px 26px rgba(24, 46, 56, 0.05);
+  }
+
+  .talk-item:last-child {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .talk-item__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.25rem;
+    margin-bottom: 0.75rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--accent);
+  }
+
+  .talk-item h2 {
+    margin: 0 0 1rem;
+    font-size: 1.25rem;
+  }
+
+  .talk-item__body :global(img) {
+    max-width: 600px;
+    margin-top: 1rem;
+    border-radius: 8px;
+  }
+</style>

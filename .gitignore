@@ -1,0 +1,20 @@
+# Dependencies
+node_modules/
+
+# Astro
+dist/
+.astro/
+
+# Legacy Jekyll build
+_site/
+.sass-cache/
+
+# Local dev
+local/
+.idea/
+.Rhistory
+
+# Lock file is committed for reproducible CI builds
+# package-lock.json
+.github/
+scratch/
