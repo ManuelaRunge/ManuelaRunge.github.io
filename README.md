@@ -1,6 +1,6 @@
-# Manuela Runge — Personal Website
+# Manuela Runge
 
-Personal website for [Manuela Runge, PhD](https://manuelarunge.github.io/) — infectious disease epidemiologist.
+Personal website for [Manuela Runge, PhD](https://manuelarunge.github.io/),  infectious disease epidemiologist.
 
 Built with [Astro](https://astro.build/). Previously used Academic Pages (Jekyll); legacy files remain in the repo for reference.
 
