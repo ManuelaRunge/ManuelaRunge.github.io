@@ -21,7 +21,7 @@ const projects = await getCollection("portfolio");
             projects.map(async (project) => {
               const { Content } = await render(project);
               return (
-                <article class="portfolio-item">
+                <article class="portfolio-item" id={project.id}>
                   <h2>{project.data.title}</h2>
                   <div class="portfolio-item__body prose">
                     <Content />

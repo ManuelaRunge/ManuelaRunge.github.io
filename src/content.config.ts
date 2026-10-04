@@ -32,6 +32,8 @@ const portfolio = defineCollection({
   schema: z.object({
     title: z.string(),
     excerpt: z.string().optional(),
+    label: z.string().optional(),
+    externalUrl: z.string().optional(),
     date: z.coerce.date().optional(),
     featured: z.boolean().optional().default(false),
   }),

@@ -1,6 +1,8 @@
 ---
-title: "Volunteer at MESA's correspondent program"
-excerpt: "During the MIM 2018, BioMalPar 2020, and ASTMH 2020 Manuela Runge reported from the conference as MESA correspondent (image from: [mesamalaria.org/resource-hub/mim-2018-day-1](https://mesamalaria.org/resource-hub/mim-2018-day-1)) (<br/><img src='/images/2020-12-13 07_09_17-MIM 2018_ Day 1 _ Mesa.png'>"
+title: "MESA Correspondent and Senior Editor"
+excerpt: "Scientific reporting and senior editorial support for malaria conference coverage and knowledge exchange."
+label: "Network role · MESA"
+externalUrl: "https://mesamalaria.org/correspondent/manuela-runge/"
 collection: portfolio
 ---
 

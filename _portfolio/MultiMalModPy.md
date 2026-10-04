@@ -1,27 +1,15 @@
 ---
-title: "Multi-Malaria-Modeling framework (MultiMalModPy) "
-excerpt: "'>"
+title: "Multi-malaria-model comparison and alignment"
+excerpt: "Comparative work aligning outputs from multiple malaria transmission models, with emphasis on transparent assumptions, reproducible Python workflows and interpretation across modelling frameworks."
+label: "Case study · Modelling pipeline"
+externalUrl: "https://www.appliedhealthanalytics.org/analytic/comparative-analysis-of-mathematical-models"
 collection: portfolio
 ---
 
-In 2015 I was working on the School Malaria Parasitaemia Survey (SMPS) in Tanzania as part of my Master degree studies at the Swiss Tropical and Public Health Institute. 
-Data was collected in three phases from primary school pupils in all regions of the mainland. 
-I was involved in the study planning, supervised data collection in one region, and lead the data entry and cleaning of the second phase (9 regions). 
-For the field work I visited the schools in each of the district of Arusha region to supervise the data collection process together with a local supervision team.
-I ran multilevel mixed effects logistic regression models to asses the influencing factor of malaria and of bednet use among primary pupils. 
-In addition maps were produced for the visualisation of the malaria prevalence among district councils.
-The statistical analysis was performed using Stata and maps generated in QGIS.
+This work focuses on comparative analysis across malaria transmission models, with attention to how different model structures, parameter choices and implementation details shape projected intervention impact.
 
-[Nationwide school malaria parasitaemia survey in public primary schools, the United Republic of Tanzania](https://malariajournal.biomedcentral.com/articles/10.1186/s12936-018-2601-1)
+While at Northwestern University, I contributed to work on multi-model alignment and comparison. The work continues in collaboration with AHADI and partners, with a focus on making model outputs easier to compare, interpret and quality-assure across modelling frameworks.
 
-School Malaria Parasitaemia Survey poster [access pdf here](https://drive.google.com/file/d/10x174K8_KQMfErCG_dD7w3dH0i10EgG9/view?usp=sharing)
+My contribution has centred on Python programming workflows and analytical pipeline development: structuring model runs, harmonising outputs, checking assumptions, and supporting reproducible comparisons that help clarify where models agree, where they differ and what those differences mean for malaria decision-making.
 
-
- <br/><img src='/images/Poster_SMPS_ECTMIH_FChaky_MRunge.png'>"
- 
- 
- 
- 
-Additional documents: 
-After my master studies I worked as a research assistant on the merging of all three study phases and data cleaning which led to the development of the data management SOP's below. 
--  [SOP for data cleaning and management of the school survey](https://drive.google.com/file/d/1nYjdEFKS2ho8cY5swgKRHybPlO0MOZxq/view?usp=sharing).
+[Comparative analysis of mathematical models](https://www.appliedhealthanalytics.org/analytic/comparative-analysis-of-mathematical-models)

@@ -19,9 +19,30 @@ const posts = (await getCollection("posts"))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
 const selectedPublications = publications.slice(0, 6);
-const selectedProjects = projects.slice(0, 3);
+const selectedProjects = projects;
 const selectedTalks = talks.slice(0, 6);
 const selectedPosts = posts.slice(0, 3);
+
+const cleanSnippet = (value = "", length = 180) =>
+  value
+    .replace(/<[^>]*>/g, " ")
+    .replace(/\s+/g, " ")
+    .trim()
+    .slice(0, length);
+
+const trajectoryItems = [
+  ...selectedProjects.map((project) => ({
+    title: project.data.title,
+    meta: project.data.label ?? "Case study",
+    description: cleanSnippet(
+      project.data.excerpt ||
+        (typeof project.body === "string" ? project.body : ""),
+      190,
+    ),
+    href: project.data.externalUrl ?? `/portfolio/#${project.id}`,
+    external: !!project.data.externalUrl,
+  })),
+];
 ---
 
 <BaseLayout>
@@ -66,24 +87,28 @@ const selectedPosts = posts.slice(0, 3);
           <p class="section-label">Research trajectory</p>
           <h2 class="section-title">Selected projects and fields of work</h2>
         </div>
-        <a href="/portfolio/" class="btn">View portfolio</a>
+        <div class="section-actions">
+          <a href="/portfolio/" class="btn">View portfolio</a>
+          <div class="carousel-controls" aria-label="Carousel controls">
+            <button class="carousel-btn" type="button" data-carousel-prev aria-label="Previous item">‹</button>
+            <button class="carousel-btn" type="button" data-carousel-next aria-label="Next item">›</button>
+          </div>
+        </div>
       </div>
-      <div class="card-grid">
+      <div class="carousel" data-carousel>
+        <div class="carousel__track" data-carousel-track tabindex="0" aria-label="Selected projects, network roles and fields of work">
         {
-          selectedProjects.map((project) => (
+          trajectoryItems.map((item) => (
             <ContentCard
-              title={project.data.title}
-              meta="Project"
-              description={
-                project.data.excerpt ||
-                (typeof project.body === "string"
-                  ? project.body.slice(0, 180).replace(/\n/g, " ") + "…"
-                  : undefined)
-              }
-              href={`/portfolio/#${project.id}`}
+              title={item.title}
+              meta={item.meta}
+              description={item.description}
+              href={item.href}
+              external={item.external}
             />
           ))
         }
+        </div>
       </div>
     </div>
   </section>
@@ -185,6 +210,60 @@ const selectedPosts = posts.slice(0, 3);
     margin-bottom: 0;
   }
 
+  .section-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .carousel {
+    position: relative;
+  }
+
+  .carousel__track {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(280px, 31%);
+    gap: 1.4rem;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scroll-padding: 0.25rem;
+    padding: 0.25rem 0 1rem;
+    scrollbar-width: thin;
+  }
+
+  .carousel__track :global(.card) {
+    min-height: 21rem;
+    scroll-snap-align: start;
+  }
+
+  .carousel-controls {
+    display: inline-flex;
+    gap: 0.4rem;
+  }
+
+  .carousel-btn {
+    display: inline-grid;
+    place-items: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border: 1px solid rgba(40, 127, 131, 0.28);
+    border-radius: 8px;
+    background: var(--bg-elevated);
+    color: var(--accent);
+    font-size: 1.45rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  }
+
+  .carousel-btn:hover {
+    transform: translateY(-1px);
+    border-color: rgba(40, 127, 131, 0.5);
+    color: var(--accent-hover);
+  }
+
   .contribution-grid {
     display: grid;
     grid-template-columns: 1.1fr 0.9fr;
@@ -277,6 +356,15 @@ const selectedPosts = posts.slice(0, 3);
       flex-direction: column;
     }
 
+    .section-actions {
+      width: 100%;
+      justify-content: space-between;
+    }
+
+    .carousel__track {
+      grid-auto-columns: minmax(260px, 86%);
+    }
+
     .contribution-grid,
     .rida-callout {
       grid-template-columns: 1fr;
@@ -287,3 +375,25 @@ const selectedPosts = posts.slice(0, 3);
     }
   }
 </style>
+
+<script>
+  document.querySelectorAll("[data-carousel]").forEach((carousel) => {
+    const track = carousel.querySelector("[data-carousel-track]");
+    const section = carousel.closest("section");
+    const prev = section?.querySelector("[data-carousel-prev]");
+    const next = section?.querySelector("[data-carousel-next]");
+
+    const scrollByCard = (direction) => {
+      if (!(track instanceof HTMLElement)) return;
+      const firstCard = track.querySelector(".card");
+      const amount =
+        firstCard instanceof HTMLElement
+          ? firstCard.getBoundingClientRect().width + 24
+          : track.clientWidth * 0.85;
+      track.scrollBy({ left: direction * amount, behavior: "smooth" });
+    };
+
+    prev?.addEventListener("click", () => scrollByCard(-1));
+    next?.addEventListener("click", () => scrollByCard(1));
+  });
+</script>
