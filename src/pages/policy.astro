@@ -1,0 +1,49 @@
+---
+import NoticeLayout from "@/layouts/NoticeLayout.astro";
+import { site } from "@/site.config";
+---
+
+<NoticeLayout title="Website policy" description="Editorial principles, attribution, AI assistance and responsible use of this website.">
+  <h2>Editorial approach</h2>
+  <p>
+    This website shares selected professional activities and research outputs.
+    Summaries provide context and do not replace published papers, underlying
+    methods, data documentation or formal institutional statements. Publication
+    and presentation dates refer to the work itself; website summaries may be
+    revised as information changes.
+  </p>
+
+  <h2>AI assistance</h2>
+  <p>
+    AI tools have supported drafting, editing, design and coding for this website.
+    {site.name} is responsible for reviewing website content and deciding what to
+    publish. AI assistance does not establish the accuracy of a statement or
+    imply AI involvement in the underlying research. Refer to each publication
+    for its own authorship, methods and disclosures.
+  </p>
+
+  <h2>Attribution and reuse</h2>
+  <p>
+    When discussing research featured here, cite the original publication or
+    resource and credit its authors. Check the relevant licence before copying
+    text, images, slides, code or data. The <a href="/legal/">legal notice</a>
+    explains how existing rights and licences apply.
+  </p>
+
+  <h2>Responsible use</h2>
+  <p>
+    Please use the site in a way that respects other people's privacy and
+    intellectual property and does not disrupt its availability or security.
+    Do not send identifiable patient information, confidential datasets or other
+    sensitive material through the contact email without first agreeing on an
+    appropriate secure method of communication.
+  </p>
+
+  <h2>Feedback and updates</h2>
+  <p>
+    Suggestions and corrections can be sent to
+    <a href={`mailto:${site.email}`}>{site.email}</a>.
+    These policies may be updated to reflect changes to the website; the date
+    above identifies the latest revision of this page.
+  </p>
+</NoticeLayout>

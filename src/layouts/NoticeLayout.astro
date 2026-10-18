@@ -1,0 +1,72 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+  <div class="page-header">
+    <div class="container">
+      <h1>{title}</h1>
+      <p>{description}</p>
+      <p class="notice-date">Last updated: <time datetime="2026-10-18">18 October 2026</time></p>
+    </div>
+  </div>
+
+  <section class="section" aria-label={title}>
+    <div class="container">
+      <article class="prose notice-content">
+        <slot />
+      </article>
+      <nav class="notice-nav" aria-label="Legal and privacy information">
+        <a href="/legal/" aria-current={Astro.url.pathname === "/legal/" ? "page" : undefined}>Legal notice</a>
+        <a href="/policy/" aria-current={Astro.url.pathname === "/policy/" ? "page" : undefined}>Website policy</a>
+        <a href="/privacy/" aria-current={Astro.url.pathname === "/privacy/" ? "page" : undefined}>Privacy notice</a>
+      </nav>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-header h1 {
+    max-width: 18ch;
+  }
+
+  .page-header .notice-date {
+    margin-top: 1.25rem;
+    font-size: 0.85rem;
+  }
+
+  .notice-content {
+    overflow-wrap: anywhere;
+  }
+
+  .notice-content :global(h2:first-child) {
+    margin-top: 0;
+  }
+
+  .notice-content :global(a),
+  .notice-nav a {
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+
+  .notice-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 1.5rem;
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.9rem;
+  }
+
+  .notice-nav [aria-current="page"] {
+    font-weight: 700;
+  }
+</style>

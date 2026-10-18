@@ -1,0 +1,61 @@
+---
+import NoticeLayout from "@/layouts/NoticeLayout.astro";
+import { site } from "@/site.config";
+---
+
+<NoticeLayout title="Legal notice" description="Website ownership, contact information and notices about the use of this research website.">
+  <h2>Website operator</h2>
+  <p>
+    This personal professional website is operated by {site.name}, {site.location}.
+    For questions about the website, its content or rights to materials, contact
+    <a href={`mailto:${site.email}`}>{site.email}</a>.
+  </p>
+  <!-- Owner review: confirm whether an additional postal address or other operator details are required before publication. -->
+
+  <h2>Purpose and responsibility</h2>
+  <p>
+    This website presents research, publications, talks and professional activities
+    in infectious disease epidemiology. Unless explicitly stated otherwise, views
+    expressed here are personal and do not represent those of employers,
+    collaborators, funders or affiliated institutions. Mention of an organisation
+    or project does not imply its endorsement of this website.
+  </p>
+
+  <h2>Research information and accuracy</h2>
+  <p>
+    Content is provided for general information and scientific communication.
+    It is not individual medical advice or a substitute for advice from a
+    qualified healthcare professional. Research findings and models have
+    assumptions and limitations; consult the original sources and their dates
+    before relying on a summary. No guarantee is given that every page is
+    complete, current or free of errors.
+  </p>
+
+  <h2>Copyright and licences</h2>
+  <p>
+    Rights in publications, figures, photographs, slides and other materials
+    remain with their respective authors or rights holders. Linking to or
+    displaying a work does not grant permission to reuse it. Follow any licence
+    attached to the particular material, or contact the rights holder when
+    permission is needed. Software covered by the repository's MIT licence
+    remains subject to that licence and its attribution requirements; this notice
+    does not override existing licences.
+  </p>
+
+  <h2>External websites and liability</h2>
+  <p>
+    External links are provided as references. Their operators are responsible
+    for their own content and services, which may change independently of this
+    website. To the extent permitted by applicable law, no liability is accepted
+    for losses arising from reliance on this website or linked content. Nothing
+    in this notice excludes liability that cannot lawfully be excluded.
+  </p>
+
+  <h2>Corrections and concerns</h2>
+  <p>
+    Please report factual errors, broken links or concerns about rights to
+    <a href={`mailto:${site.email}`}>{site.email}</a>, identifying the relevant page
+    and the issue. Information about personal data is available in the
+    <a href="/privacy/">privacy notice</a>.
+  </p>
+</NoticeLayout>
