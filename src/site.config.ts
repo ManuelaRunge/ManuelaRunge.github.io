@@ -7,7 +7,7 @@ export const site = {
   url: "https://manuelarunge.github.io",
   email: "manuelarunge10@gmail.com",
   location: "Switzerland",
-  ridaUrl: "https://manuelarunge.github.io/runge-idanalytics/",
+  ridaUrl: "https://runge-infectious-disease-analytics.github.io/runge-idanalytics/",
   heroImage: "/images/landscape_TZA1.jpg",
   profileImage: "/images/mrunge-profile.jpg",
   quoteImage: "/images/100_0324_edited_wide_resized.JPG",
