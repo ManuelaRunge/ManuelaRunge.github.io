@@ -24,6 +24,7 @@ const talks = defineCollection({
     location: z.string().optional(),
     type: z.string().optional(),
     featured: z.boolean().optional().default(false),
+    excerpt: z.string().optional(),
   }),
 });
 

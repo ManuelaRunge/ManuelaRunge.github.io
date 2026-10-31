@@ -3,7 +3,7 @@ import NoticeLayout from "@/layouts/NoticeLayout.astro";
 import { site } from "@/site.config";
 ---
 
-<NoticeLayout title="Legal notice" description="Website ownership, contact information and notices about the use of this research website.">
+<NoticeLayout updated="2026-10-31" title="Legal notice" description="Website ownership, contact information and notices about the use of this research website.">
   <h2>Website operator</h2>
   <p>
     This personal professional website is operated by {site.name}, {site.location}.
@@ -11,6 +11,22 @@ import { site } from "@/site.config";
     <a href={`mailto:${site.email}`}>{site.email}</a>.
   </p>
   <!-- Owner review: confirm whether an additional postal address or other operator details are required before publication. -->
+
+  <h2>Manuela Runge GmbH</h2>
+  <p>
+    Consultancy services listed under <a href="/gmbh/">Manuela Runge GmbH</a>
+    are offered by Manuela Runge GmbH, 8404 Winterthur, Switzerland.
+    Business identification number (UID): <strong>CHE-434.219.142</strong>.
+    Contact: <a href={`mailto:${site.email}`}>{site.email}</a>.
+  </p>
+  <h2>Professional experience and consultancy</h2>
+  <p>
+    Publications, projects and roles on this website document Manuela Runge’s
+    personal professional experience, including work with research teams and
+    institutions. They are not presented as consultancy commissions delivered
+    by Manuela Runge GmbH. References to organisations and collaborators do not
+    imply endorsement of the consultancy.
+  </p>
 
   <h2>Purpose and responsibility</h2>
   <p>
@@ -32,6 +48,7 @@ import { site } from "@/site.config";
   </p>
 
   <h2>Copyright and licences</h2>
+  <p>© 2022–2026 Manuela Runge</p>
   <p>
     Rights in publications, figures, photographs, slides and other materials
     remain with their respective authors or rights holders. Linking to or

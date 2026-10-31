@@ -4,9 +4,11 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 interface Props {
   title: string;
   description: string;
+  updated?: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description, updated = "2026-10-18" } = Astro.props;
+const updatedLabel = new Date(`${updated}T12:00:00Z`).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
 ---
 
 <BaseLayout title={title} description={description}>
@@ -14,7 +16,7 @@ const { title, description } = Astro.props;
     <div class="container">
       <h1>{title}</h1>
       <p>{description}</p>
-      <p class="notice-date">Last updated: <time datetime="2026-10-18">18 October 2026</time></p>
+      <p class="notice-date">Last updated: <time datetime={updated}>{updatedLabel}</time></p>
     </div>
   </div>
 

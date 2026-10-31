@@ -1,5 +1,6 @@
 ---
 import { site } from "@/site.config";
+import CountriesStrip from "@/components/CountriesStrip.astro";
 ---
 
 <section class="hero">
@@ -13,19 +14,17 @@ import { site } from "@/site.config";
         synthesis, modelling and analytical reasoning. My research identity is grounded
         in careful methods, critical thinking and transparent scientific communication.
       </p>
-      <div class="hero__actions">
-        <a href="/#selected-work" class="btn btn--primary">View selected work</a>
-        <a href="/#rida" class="btn">Explore RIDA pathway</a>
-      </div>
+      <CountriesStrip />
     </div>
-    <aside class="hero__panel" aria-label="Research focus summary">
+    <aside class="hero__panel" aria-label="Interests">
       <img src={site.profileImage} alt="Manuela Runge" />
       <div>
-        <p class="hero__panel-label">Research focus</p>
+        <p class="hero__panel-label">Interests</p>
         <ul>
           <li><strong>Epidemiology</strong><span>Infectious disease patterns, burden and intervention questions</span></li>
           <li><strong>Methods</strong><span>Modelling, evidence review, analysis and transparent workflows</span></li>
-          <li><strong>Writing</strong><span>Publications, peer review and scientific communication</span></li>
+          <li><strong>Software & tools</strong><span>R and Python programming, QGIS, and reproducible analysis pipelines</span></li>
+          <li><strong>Writing</strong><span>Scientific writing, copyediting, event summaries and knowledge sharing</span></li>
         </ul>
       </div>
     </aside>
@@ -96,12 +95,6 @@ import { site } from "@/site.config";
     max-width: 52ch;
   }
 
-  .hero__actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-
   .hero__panel {
     display: grid;
     gap: 1.2rem;
@@ -137,7 +130,7 @@ import { site } from "@/site.config";
 
   .hero__panel li {
     display: grid;
-    grid-template-columns: 5rem 1fr;
+    grid-template-columns: 7rem minmax(0, 1fr);
     gap: 0.75rem;
     padding-top: 0.75rem;
     border-top: 1px solid var(--border);
@@ -150,6 +143,14 @@ import { site } from "@/site.config";
   .hero__panel span {
     color: var(--text-muted);
     font-size: 0.92rem;
+    overflow-wrap: anywhere;
+  }
+
+  @media (max-width: 480px) {
+    .hero__panel li {
+      grid-template-columns: 1fr;
+      gap: 0.25rem;
+    }
   }
 
   @media (max-width: 860px) {

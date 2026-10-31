@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import ProfessionalRecordNote from "@/components/ProfessionalRecordNote.astro";
 import { getCollection, render } from "astro:content";
 
 const projects = await getCollection("portfolio");
@@ -15,6 +16,7 @@ const projects = await getCollection("portfolio");
 
   <section class="section">
     <div class="container">
+      <ProfessionalRecordNote />
       <div class="portfolio-list">
         {
           await Promise.all(

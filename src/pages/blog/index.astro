@@ -1,47 +1,118 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import ContentCard from "@/components/ContentCard.astro";
 import { getCollection } from "astro:content";
 
 const posts = (await getCollection("posts")).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
 );
+const categories = [
+  ["all", "All"],
+  ["articles", "Articles and Insights"],
+  ["review", "Peer Review and Editorial Activities"],
+];
+const journals = [
+  "BMC Health Services Research", "BMC Infectious Diseases", "BMJ Open",
+  "Cogent Medicine", "Environmental Health Insights", "F1000Research",
+  "Malaria Journal", "Parasites & Vectors", "PLOS Global Public Health",
+  "The Lancet Global Health", "Wellcome Open Research",
+];
+// Add a verified public peer-review record URL here when available.
+const peerReviewRecordUrl: string | undefined = undefined;
 ---
 
-<BaseLayout title="Blog" description="Conference recaps and research notes.">
+<BaseLayout title="Writing" description="Articles, peer review and editorial activities by Manuela Runge.">
   <div class="page-header">
     <div class="container">
-      <h1>Blog</h1>
-      <p>Conference recaps, reflections, and research notes.</p>
+      <h1>Writing</h1>
+      <p>Articles, insights and contributions to scientific publishing.</p>
     </div>
   </div>
-
-  <section class="section">
-    <div class="container">
-      <div class="card-grid">
-        {
-          posts.map((post) => (
-            <article class="card">
-              <p class="card-meta">{post.data.date.getFullYear()}</p>
-              <h3>
-                <a href={`/blog/${post.id}/`}>{post.data.title}</a>
-              </h3>
-              {post.data.tags && (
-                <p class="blog-tags">{post.data.tags.join(" · ")}</p>
-              )}
-            </article>
-          ))
-        }
+  <section class="section writing" aria-label="Writing">
+    <div class="container" data-writing>
+      <div class="writing-filters" role="group" aria-label="Filter Writing by category" hidden>
+        {categories.map(([value, label]) => (
+          <button type="button" class="btn" data-filter={value} aria-pressed={value === "all"} aria-controls="writing-content">{label}</button>
+        ))}
+      </div>
+      <p class="filter-status" aria-live="polite" aria-atomic="true"></p>
+      <div id="writing-content">
+      <section class="writing-group" data-category="articles" aria-labelledby="articles-heading">
+      <h2 id="articles-heading">Articles and Insights</h2>
+      <div class="card-grid writing-grid">
+        {posts.map((post) => (
+          <div>
+          <ContentCard
+            title={post.data.title}
+            meta={`${post.data.date.getFullYear()}${post.data.tags ? ` · ${post.data.tags.join(" · ")}` : ""}`}
+            description={post.data.excerpt}
+            href={`/blog/${post.id}/`}
+          />
+          </div>
+        ))}
+      </div>
+      </section>
+      <section class="writing-group editorial" data-category="review" aria-labelledby="review-heading">
+        <h2 id="review-heading">Peer Review and Editorial Activities</h2>
+        <div class="editorial-appointment">
+          <p class="section-label">Editorial appointment</p>
+          <h3>Associate Editor, <em>Malaria Journal</em></h3>
+          <p>Since October 2026</p>
+        </div>
+        <p class="review-intro">Contributing to scientific quality and research integrity through independent peer review and editorial activities, with a focus on infectious disease epidemiology, public health, mathematical modelling and quantitative research methods.</p>
+        <h3>Scientific peer review</h3>
+        <p>I have completed more than 19 scientific peer reviews, including contributions to the following journals and publication venues:</p>
+        <ul class="journal-list">
+          {journals.map((journal) => <li><em>{journal}</em></li>)}
+        </ul>
+        {peerReviewRecordUrl && <p><a href={peerReviewRecordUrl}>Public peer-review record</a></p>}
+      </section>
       </div>
     </div>
   </section>
 </BaseLayout>
 
+<script>
+  const writing = document.querySelector<HTMLElement>("[data-writing]");
+  if (writing) {
+    const filters = writing.querySelector<HTMLElement>(".writing-filters")!;
+    const buttons = Array.from(filters.querySelectorAll<HTMLButtonElement>("[data-filter]"));
+    const groups = writing.querySelectorAll<HTMLElement>("[data-category]");
+    const status = writing.querySelector<HTMLElement>(".filter-status")!;
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const selected = button.dataset.filter!;
+        buttons.forEach((other) => other.setAttribute("aria-pressed", String(other === button)));
+        groups.forEach((group) => {
+          group.hidden = selected !== "all" && !group.dataset.category!.split(" ").includes(selected);
+        });
+        status.textContent = selected === "all" ? "Showing all Writing categories." : `Showing ${button.textContent}.`;
+      });
+    });
+    filters.hidden = false;
+  }
+</script>
+
 <style>
-  .blog-tags {
-    margin: 0.5rem 0 0;
-    font-size: 0.8rem;
-    color: var(--blue);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
+  .writing [hidden] { display: none !important; }
+  .writing-filters { display: flex; flex-wrap: wrap; gap: 0.65rem; margin-bottom: 2rem; }
+  .writing-filters button { font: inherit; font-size: 0.88rem; cursor: pointer; white-space: normal; text-align: left; }
+  .writing-filters button[aria-pressed="true"] { background: var(--accent); color: white; }
+  .writing-filters button:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+  .filter-status { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); }
+  .writing-group + .writing-group { margin-top: 3.5rem; }
+  .writing-group h2 { font-size: clamp(1.5rem, 3vw, 2rem); margin-top: 0; }
+  .editorial { border-bottom: 1px solid var(--border); padding-bottom: 2.5rem; }
+  .editorial-appointment { border-left: 3px solid var(--accent); padding: 0.25rem 0 0.25rem 1.25rem; margin: 1.75rem 0; }
+  .editorial-appointment h3 { font-size: 1.4rem; margin: 0; }
+  .editorial-appointment p:last-child { margin-bottom: 0; color: var(--text-muted); }
+  .review-intro, .editorial > p { max-width: 78ch; }
+  .journal-list { columns: 2; column-gap: 3rem; padding-left: 1.25rem; max-width: 56rem; }
+  .journal-list li { break-inside: avoid; padding-bottom: 0.3rem; }
+  .writing-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); }
+  .writing-grid :global(.card) { height: 100%; }
+  @media (max-width: 600px) {
+    .journal-list { columns: 1; }
+    .writing-filters { gap: 0.5rem; }
   }
 </style>

@@ -7,6 +7,7 @@ permalink: /talks/2024-ASTMH
 venue: "ASTMH"
 date: 2024-11-18
 location: "New Orleans"
+excerpt: "Comparing individual-based malaria models to understand model behaviour and support model-informed decisions. Poster available."
 ---
 
 

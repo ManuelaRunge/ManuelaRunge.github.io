@@ -7,6 +7,7 @@ permalink: /talks/2023-ASTMH
 venue: "ASTMH"
 date: 2023-10-21
 location: "Chicago, IL, USA"
+excerpt: "Using modelling to assess the operational effectiveness of perennial malaria chemoprevention in Osun State, Nigeria. Poster available."
 ---
 
 

@@ -2,6 +2,7 @@
 import { nav, site } from "@/site.config";
 
 const currentPath = Astro.url.pathname;
+const isActive = (href: string) => href === "/" ? currentPath === "/" : currentPath.startsWith(href);
 ---
 
 <header class="header">
@@ -17,7 +18,8 @@ const currentPath = Astro.url.pathname;
         nav.map((item) => (
           <a
             href={item.href}
-            class:list={["header__link", { "is-active": currentPath.startsWith(item.href) }]}
+            class:list={["header__link", { "is-active": isActive(item.href) }]}
+            aria-current={currentPath === item.href ? "page" : undefined}
           >
             {item.label}
           </a>
@@ -32,7 +34,7 @@ const currentPath = Astro.url.pathname;
   <nav class="header__mobile" id="mobile-nav" aria-label="Mobile navigation" hidden>
     {
       nav.map((item) => (
-        <a href={item.href} class="header__mobile-link">{item.label}</a>
+        <a href={item.href} class="header__mobile-link" aria-current={currentPath === item.href ? "page" : undefined}>{item.label}</a>
       ))
     }
   </nav>
@@ -148,7 +150,7 @@ const currentPath = Astro.url.pathname;
     border-bottom: 1px solid var(--border);
   }
 
-  @media (max-width: 900px) {
+  @media (max-width: 1050px) {
     .header__nav {
       display: none;
     }

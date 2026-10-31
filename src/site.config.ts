@@ -7,7 +7,6 @@ export const site = {
   url: "https://manuelarunge.github.io",
   email: "manuelarunge10@gmail.com",
   location: "Switzerland",
-  ridaUrl: "https://runge-infectious-disease-analytics.github.io/runge-idanalytics/",
   heroImage: "/images/landscape_TZA1.jpg",
   profileImage: "/images/mrunge-profile.jpg",
   quoteImage: "/images/100_0324_edited_wide_resized.JPG",
@@ -15,10 +14,9 @@ export const site = {
 } as const;
 
 export const nav = [
-  { label: "Methods", href: "/#methods" },
-  { label: "Work", href: "/#selected-work" },
-  { label: "Contributions", href: "/#contributions" },
-  { label: "RIDA", href: "/#rida" },
+  { label: "Home", href: "/" },
+  { label: "Writing", href: "/blog/" },
+  { label: "Manuela Runge GmbH", href: "/gmbh/" },
   { label: "Contact", href: "/collaboration/" },
 ] as const;
 
