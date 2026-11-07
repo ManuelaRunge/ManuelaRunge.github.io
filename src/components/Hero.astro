@@ -1,7 +1,6 @@
 <section class="hero" aria-labelledby="home-heading">
   <div class="container hero__content">
-    <p class="section-label">Epidemiology · Modelling · Knowledge sharing</p>
-    <h1 id="home-heading">Driven by better health.<br /><em>Guided by evidence.</em></h1>
+    <h1 id="home-heading" class="section-label">Epidemiology · Modelling · Knowledge sharing</h1>
     <p class="hero__subtitle">Exploring ideas, connecting perspectives and sharing what I learn about infectious disease epidemiology, modelling and public health.</p>
     <p class="hero__note">A space for scientific questions, reflections from research and conversations that help make sense of complex health challenges.</p>
     <ul class="hero__themes" aria-label="What you will find here">
@@ -19,8 +18,7 @@
 <style>
   .hero { position: relative; isolation: isolate; overflow: hidden; padding: calc(var(--header-height) + 5.5rem) 0 5.5rem; background: #f7f4ec; border-bottom: 1px solid var(--border); }
   .hero__content { position: relative; z-index: 1; }
-  h1 { max-width: 19ch; font-size: clamp(2.65rem, 5.7vw, 4.9rem); line-height: 1.12; letter-spacing: -0.035em; margin: 1.4rem 0 1.8rem; color: #254d43; }
-  h1 em { font-weight: 500; }
+  h1.section-label { font-family: var(--font-body); line-height: 1.65; }
   .hero__subtitle { max-width: 55ch; font-size: clamp(1.05rem, 1.6vw, 1.2rem); color: var(--text); }
   .hero__note { max-width: 53ch; color: var(--text-muted); }
   .hero__themes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: 48rem; list-style: none; padding: 0; margin: 2.5rem 0; gap: 1.5rem; }
