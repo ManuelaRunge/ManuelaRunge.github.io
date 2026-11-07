@@ -15,7 +15,9 @@ export const site = {
 
 export const nav = [
   { label: "Home", href: "/" },
+  { label: "About", href: "/about/" },
   { label: "Writing", href: "/blog/" },
+  { label: "Weekly Radar", href: "/weekly-radar/" },
   { label: "Manuela Runge GmbH", href: "/gmbh/" },
   { label: "Contact", href: "/collaboration/" },
 ] as const;
