@@ -1,0 +1,130 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+interface RadarItem {
+  date: string;
+  title: string;
+  url: string;
+  publisher: string;
+}
+interface RadarGroup {
+  heading: string;
+  items: RadarItem[];
+}
+
+const radarSource =
+  "https://raw.githubusercontent.com/ManuelaRunge/weekly-radar/main/output/latest.md";
+const radarRepository = "https://github.com/ManuelaRunge/weekly-radar";
+const groups: RadarGroup[] = [];
+let generatedDate = "";
+let feedError = false;
+
+try {
+  const response = await fetch(radarSource, { signal: AbortSignal.timeout(10000) });
+  if (!response.ok) throw new Error(`Radar source returned ${response.status}`);
+  const markdown = await response.text();
+  const dateMatch = markdown.match(/^# RIDA Radar .+\((\d{4}-\d{2}-\d{2})\)/m);
+  generatedDate = dateMatch?.[1] ?? "";
+
+  let current: RadarGroup | undefined;
+  for (const line of markdown.split(/\r?\n/)) {
+    const header = line.match(/^## (.+)$/);
+    if (header) {
+      current = { heading: header[1], items: [] };
+      groups.push(current);
+      continue;
+    }
+    const item = line.match(/^- \*\*(\d{4}-\d{2}-\d{2})\*\* \[(.+)\]\((https:\/\/[^)]+)\) \((.+)\)$/);
+    if (!item || !current) continue;
+    current.items.push({
+      date: item[1],
+      title: item[2],
+      url: item[3],
+      publisher: item[4],
+    });
+  }
+  if (!groups.some((group) => group.items.length)) feedError = true;
+} catch {
+  feedError = true;
+}
+
+const limits: Record<string, number> = {
+  "Priority updates – last 7 days": 15,
+  "Other updates – 8–30 days ago": 10,
+  "Upcoming events – by date": 10,
+};
+const visibleGroups = groups
+  .map((group) => ({
+    ...group,
+    items: group.items.slice(0, limits[group.heading] ?? 10),
+  }))
+  .filter((group) => group.items.length > 0);
+---
+
+<BaseLayout
+  title="RIDA Radar"
+  description="A weekly source-linked reading list in infectious disease epidemiology, malaria, NTDs and global health."
+>
+  <div class="page-header">
+    <div class="container">
+      <p class="eyebrow">Research and resources</p>
+      <h1>RIDA Radar</h1>
+      <p>Selected source links from a weekly research and global health reading inbox.</p>
+      {generatedDate && <p class="update-date">Latest source collection: {generatedDate}</p>}
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container radar-content">
+      <p class="editorial-note">
+        This is an automatically generated discovery list, not a verified scientific summary.
+        Publication dates, findings and event details should be checked against the original sources.
+        Inclusion does not imply endorsement.
+      </p>
+
+      {visibleGroups.map((group) => (
+        <section class="radar-group" aria-label={group.heading}>
+          <h2>{group.heading}</h2>
+          <ul class="radar-list">
+            {group.items.map((item) => (
+              <li>
+                <span class="item-date">{item.date}</span>
+                <div>
+                  <a href={item.url} target="_blank" rel="noopener noreferrer">{item.title}</a>
+                  <p class="publisher">{item.publisher}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))}
+
+      {feedError && (
+        <p>
+          The latest Radar index could not be loaded during the last website build.
+          The current briefing remains available in the source repository.
+        </p>
+      )}
+
+      <p class="archive">
+        <a href={radarRepository}>View the RIDA Radar repository and briefing archive</a>
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .radar-content { max-width: 920px; }
+  .eyebrow { margin: 0 0 0.5rem; color: var(--accent); font-size: 0.82rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; }
+  .update-date { font-size: 0.9rem; color: var(--text-muted); }
+  .editorial-note { border-left: 3px solid var(--accent); padding: 0.75rem 1.1rem; color: var(--text-muted); background: var(--accent-soft); }
+  .radar-group { margin-top: 2.5rem; }
+  .radar-group h2 { font-size: clamp(1.35rem, 2.5vw, 1.75rem); margin-bottom: 1.2rem; }
+  .radar-list { list-style: none; padding: 0; margin: 0; }
+  .radar-list li { display: grid; grid-template-columns: 105px minmax(0, 1fr); gap: 1rem; border-bottom: 1px solid var(--border); padding: 0.8rem 0; }
+  .radar-list a { font-weight: 600; text-decoration: underline; text-underline-offset: 3px; overflow-wrap: anywhere; }
+  .item-date, .publisher { color: var(--text-muted); font-size: 0.85rem; }
+  .publisher { margin: 0.35rem 0 0; }
+  .archive { margin-top: 2.5rem; }
+  @media (max-width: 600px) { .radar-list li { grid-template-columns: 1fr; gap: 0.25rem; } }
+</style>
