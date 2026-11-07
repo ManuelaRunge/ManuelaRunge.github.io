@@ -3,6 +3,9 @@ name: Deploy Astro site to GitHub Pages
 on:
   push:
     branches: [master, main]
+  # Rebuild after the Radar source repository runs on Monday 06:15 UTC.
+  schedule:
+    - cron: "15 8 * * 1"
   workflow_dispatch:
 
 permissions:
