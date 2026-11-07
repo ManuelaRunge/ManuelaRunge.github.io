@@ -15,3 +15,7 @@ The site rebuilds Mondays at 08:15 UTC and on pushes to master/main. Pull reques
 
 Run `node --test tests/radar.test.mjs` for contract, freshness, link and failure-handling checks, then `npm run build` (requires access to the public feed).
 
+
+## GitHub Pages publishing
+
+In repository Settings > Pages, keep Build and deployment > Source set to **GitHub Actions**. The workflow publishes the generated `dist/` directory. Publishing directly from the `master` branch serves source files instead and breaks Astro page routes. Production deployments are queued rather than cancelled while publishing.

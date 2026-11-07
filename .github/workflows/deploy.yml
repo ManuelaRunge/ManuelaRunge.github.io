@@ -14,7 +14,8 @@ permissions:
 
 concurrency:
   group: pages-${{ github.event.pull_request.number || 'production' }}
-  cancel-in-progress: true
+  # Let production deployments finish so Pages is not left with an active deployment.
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   build:
@@ -37,6 +38,12 @@ jobs:
 
       - name: Test Radar selection and failure handling
         run: node --test tests/radar.test.mjs
+
+      - name: Verify required page output
+        run: |
+          for page in index.html about/index.html blog/index.html weekly-radar/index.html gmbh/index.html; do
+            test -s "dist/$page" || exit 1
+          done
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
