@@ -1,0 +1,40 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { Content } from "@/data/weekly-radar.md";
+---
+
+<BaseLayout title="Weekly Radar" description="A weekly catch-up on infectious disease research, methods, policy and events.">
+  <div class="page-header">
+    <div class="container">
+      <h1>Weekly Radar</h1>
+      <p>A weekly catch-up on infectious disease research, methods, policy and events.</p>
+    </div>
+  </div>
+  <section class="section" aria-label="Weekly Radar digest">
+    <div class="container radar">
+      <div class="radar__edition">
+        <p>Edition: <time datetime="2026-10-24">24 October 2026</time></p>
+        <p>This edition reflects the sources and event dates collected at that time.</p>
+      </div>
+      <article class="prose">
+        <Content />
+      </article>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .radar { max-width: 860px; }
+  .radar__edition {
+    margin-bottom: 2.5rem;
+    padding: 1rem 1.25rem;
+    background: var(--accent-soft);
+    border-radius: 8px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+  }
+  .radar__edition p { margin: 0; }
+  .radar__edition p + p { margin-top: 0.35rem; }
+  .radar :global(li) { margin-bottom: 1rem; }
+  .radar :global(a) { overflow-wrap: anywhere; }
+</style>

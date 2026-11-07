@@ -1,40 +1,68 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import { Content } from "@/data/weekly-radar.md";
----
+import { loadRadar } from "@/lib/radar.mjs";
 
-<BaseLayout title="Weekly Radar" description="A weekly catch-up on infectious disease research, methods, policy and events.">
+const archiveUrl = "https://github.com/ManuelaRunge/weekly-radar/releases";
+const sourceRepo = "https://github.com/ManuelaRunge/weekly-radar";
+const { sections, isoDate } = await loadRadar();
+---
+<BaseLayout title="Weekly Radar" description="Weekly source links in infectious disease epidemiology, malaria, neglected tropical diseases, vaccines and research methods.">
   <div class="page-header">
     <div class="container">
+      <p class="radar-kicker">Infectious disease research &amp; methods</p>
       <h1>Weekly Radar</h1>
-      <p>A weekly catch-up on infectious disease research, methods, policy and events.</p>
+      <p>A weekly selection of research, reports, tools and developments worth exploring.</p>
+      <p class="radar-date">Index prepared {isoDate}</p>
     </div>
   </div>
-  <section class="section" aria-label="Weekly Radar digest">
-    <div class="container radar">
-      <div class="radar__edition">
-        <p>Edition: <time datetime="2026-10-24">24 October 2026</time></p>
-        <p>This edition reflects the sources and event dates collected at that time.</p>
+
+  <section class="section">
+    <div class="container radar-main">
+      <p class="radar-note">
+        Source-linked discovery, not a scientific review. Dates and titles are drawn from source records
+        and may not have been independently verified. Inclusion does not imply endorsement.
+      </p>
+
+      {sections.map((section) => (
+          <section class="radar-section" aria-label={section.heading}>
+            <h2>{section.heading}</h2>
+            <p class="radar-section-description">{section.description}</p>
+            {section.items.length ? (
+              <ul class="radar-list">
+                {section.items.map((item) => (
+                  <li>
+                    <time datetime={item.date}>{item.date}</time>
+                    <div>
+                      <a href={item.url} rel="noopener noreferrer" target="_blank">{item.title}</a>
+                      <p class="radar-source">{item.source}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            ) : <p>No qualifying dated items in this period.</p>}
+          </section>
+        ))}
+      <div class="radar-footer">
+        <a href="/weekly-radar/archive/2026-10-24/">24 October 2026 edition</a>
+        <a href={archiveUrl}>Browse weekly Radar releases</a>
+        <a href={sourceRepo}>Source repository and methods</a>
       </div>
-      <article class="prose">
-        <Content />
-      </article>
     </div>
   </section>
 </BaseLayout>
 
 <style>
-  .radar { max-width: 860px; }
-  .radar__edition {
-    margin-bottom: 2.5rem;
-    padding: 1rem 1.25rem;
-    background: var(--accent-soft);
-    border-radius: 8px;
-    color: var(--text-muted);
-    font-size: 0.9rem;
-  }
-  .radar__edition p { margin: 0; }
-  .radar__edition p + p { margin-top: 0.35rem; }
-  .radar :global(li) { margin-bottom: 1rem; }
-  .radar :global(a) { overflow-wrap: anywhere; }
+  .radar-main { max-width: 920px; }
+  .radar-kicker { color: var(--accent); font-size: .82rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+  .radar-date, .radar-section-description, .radar-source { color: var(--text-muted); font-size: .9rem; }
+  .radar-note { margin-bottom: 2.8rem; padding: 1rem 1.2rem; border-left: 3px solid var(--accent); background: var(--accent-soft); max-width: 75ch; }
+  .radar-section { margin-top: 2.5rem; }
+  .radar-section h2 { margin: 0 0 .2rem; font-size: clamp(1.3rem, 3vw, 1.9rem); }
+  .radar-list { padding: 0; margin: 1.1rem 0 0; list-style: none; }
+  .radar-list li { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 1.2rem; border-bottom: 1px solid var(--border); padding: .9rem 0; }
+  .radar-list time { color: var(--text-muted); font-size: .86rem; white-space: nowrap; }
+  .radar-list a { font-weight: 600; text-decoration: underline; text-underline-offset: 3px; overflow-wrap: anywhere; }
+  .radar-source { margin: .25rem 0 0; }
+  .radar-footer { margin-top: 2.5rem; display: flex; flex-wrap: wrap; gap: 1.5rem; font-size: .9rem; }
+  @media (max-width: 650px) { .radar-list li { grid-template-columns: 1fr; gap: .25rem; } }
 </style>
