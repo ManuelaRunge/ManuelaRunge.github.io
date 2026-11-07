@@ -4,7 +4,7 @@ import { loadRadar } from "@/lib/radar.mjs";
 
 const archiveUrl = "https://github.com/ManuelaRunge/weekly-radar/releases";
 const sourceRepo = "https://github.com/ManuelaRunge/weekly-radar";
-const { sections, isoDate } = await loadRadar();
+const { sections, isoDate, notice, isStale, feedAgeDays } = await loadRadar();
 ---
 <BaseLayout title="Weekly Radar" description="Weekly source links in infectious disease epidemiology, malaria, neglected tropical diseases, vaccines and research methods.">
   <div class="page-header">
@@ -12,16 +12,16 @@ const { sections, isoDate } = await loadRadar();
       <p class="radar-kicker">Infectious disease research &amp; methods</p>
       <h1>Weekly Radar</h1>
       <p>A weekly selection of research, reports, tools and developments worth exploring.</p>
-      <p class="radar-date">Index prepared {isoDate}</p>
+      <p class="radar-date">Source feed updated <time datetime={isoDate}>{isoDate}</time></p>
     </div>
   </div>
 
   <section class="section">
     <div class="container radar-main">
       <p class="radar-note">
-        Source-linked discovery, not a scientific review. Dates and titles are drawn from source records
-        and may not have been independently verified. Inclusion does not imply endorsement.
+        {notice}
       </p>
+      {isStale && <p class="radar-stale" role="status">The source feed is {feedAgeDays} days old. These sections reflect the {isoDate} snapshot. <a href={archiveUrl}>Check the release archive for updates.</a></p>}
 
       {sections.map((section) => (
           <section class="radar-section" aria-label={section.heading}>
@@ -34,7 +34,7 @@ const { sections, isoDate } = await loadRadar();
                     <time datetime={item.date}>{item.date}</time>
                     <div>
                       <a href={item.url} rel="noopener noreferrer" target="_blank">{item.title}</a>
-                      <p class="radar-source">{item.source}</p>
+                      <p class="radar-source">({item.publisher}) · {item.topic}</p>
                     </div>
                   </li>
                 ))}
@@ -56,6 +56,7 @@ const { sections, isoDate } = await loadRadar();
   .radar-kicker { color: var(--accent); font-size: .82rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
   .radar-date, .radar-section-description, .radar-source { color: var(--text-muted); font-size: .9rem; }
   .radar-note { margin-bottom: 2.8rem; padding: 1rem 1.2rem; border-left: 3px solid var(--accent); background: var(--accent-soft); max-width: 75ch; }
+  .radar-stale { margin: -1.5rem 0 2rem; padding: 1rem 1.2rem; border: 1px solid var(--border); border-radius: .4rem; max-width: 75ch; }
   .radar-section { margin-top: 2.5rem; }
   .radar-section h2 { margin: 0 0 .2rem; font-size: clamp(1.3rem, 3vw, 1.9rem); }
   .radar-list { padding: 0; margin: 1.1rem 0 0; list-style: none; }

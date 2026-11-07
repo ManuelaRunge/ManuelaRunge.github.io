@@ -7,9 +7,11 @@ AI was used to help draft, restructure, edit, and implement parts of the site's 
 
 ## Weekly Radar
 
-`/weekly-radar/` builds a source-linked reading index from the public `data/items.json` in [weekly-radar](https://github.com/ManuelaRunge/weekly-radar). It displays titles, dates and publishers, without generated summaries. These are discovery records, not independently verified recommendations. The 24 October 2026 edition remains at `/weekly-radar/archive/2026-10-24/`.
+`/weekly-radar/` reads the versioned [`output/public.json` feed](https://raw.githubusercontent.com/ManuelaRunge/weekly-radar/main/output/public.json) from [weekly-radar](https://github.com/ManuelaRunge/weekly-radar). The Radar repository selects and orders its links; the website preserves those selections rather than filtering the full archive again. It displays titles, source dates, publishers in parentheses, topics and the source-discovery notice. These are discovery leads, not independently verified recommendations. The 24 October 2026 edition remains at `/weekly-radar/archive/2026-10-24/`.
 
-The site rebuilds Mondays at 08:15 UTC and on pushes to master/main. Pull requests build and run the Radar tests without deploying. A source-fetch or top-level format failure fails the build, preserving the last deployed site. Malformed individual records are skipped. This is a build-time index, not a live feed; its preparation date is shown on the page.
+The site rebuilds Mondays at 08:15 UTC and on pushes to master/main. Pull requests build and run the Radar tests without deploying. This is a build-time snapshot: the page shows the feed's `generated_date`, never the site-build date, and flags feeds more than seven days old. The Radar and website schedules are independent, so check the displayed source date to assess freshness.
 
-Run `node --test tests/radar.test.mjs` to check filtering, dates, deduplication and fetch failures, then `npm run build` (requires access to the public feed). Filtering rules live in `src/lib/radar-rules.mjs`; selection and loading live in `src/lib/radar.mjs`.
+`src/lib/radar.mjs` validates schema version 1, generation dates, disclosure, the three public sections and each item's title, HTTPS URL, date, publisher and topic. Upstream failures or malformed payloads fail the build, retaining the last deployed site. Only public display fields are projected into the page. News windows and ranking, including WHO priority, remain owned by the feed; the website does not independently rescore or relabel items.
+
+Run `node --test tests/radar.test.mjs` for contract, freshness, link and failure-handling checks, then `npm run build` (requires access to the public feed).
 
