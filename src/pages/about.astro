@@ -1,25 +1,32 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import CountriesStrip from "@/components/CountriesStrip.astro";
 import { site, social } from "@/site.config";
 ---
 
 <BaseLayout title="About" description="About Manuela Runge — infectious disease epidemiologist.">
-  <div class="page-header">
-    <div class="container">
-      <h1>About</h1>
-      <p>Infectious disease epidemiologist, researcher and analyst.</p>
+  <div class="about-page">
+  <section class="about-hero" aria-labelledby="about-heading">
+    <div class="container about-hero__grid">
+      <div>
+        <p class="section-label">About me</p>
+        <h1 id="about-heading">{site.title}</h1>
+        <p class="about-role">Infectious disease epidemiologist &amp; mathematical modeller</p>
+        <p class="about-lead">Working at the intersection of research, quantitative analysis and global health, with a focus on careful methods and shared understanding.</p>
+        <CountriesStrip />
+      </div>
+      <figure class="about-portrait"><img src={site.profileImage} alt="Manuela Runge" width="400" height="400" fetchpriority="high" /></figure>
     </div>
-  </div>
-
+  </section>
   <section class="section">
     <div class="container about">
       <div class="about__intro prose">
+        <p class="section-label">Research &amp; experience</p>
+        <h2 class="bio-heading">From evidence to understanding</h2>
         <p>
           I am Manuela Runge, an infectious disease epidemiologist focused on using
           epidemiological evidence, quantitative methods and scientific writing to
-          understand infectious disease questions. My work is driven by the knowledge
-          that many diseases and adverse health outcomes are preventable, treatable, or
-          reducible through well-informed interventions.
+          understand infectious disease questions.
         </p>
         <p>
           I apply a broad range of analytical tools, from statistical analysis that
@@ -31,12 +38,17 @@ import { site, social } from "@/site.config";
         <p>
           Much of my experience is in malaria research in Sub-Saharan Africa. I have also
           contributed to projects on neglected tropical diseases, including onchocerciasis
-          and lymphatic filariasis, as well as COVID-19, West Nile virus, and measles. My
-          international work experience includes Germany, Switzerland, Tanzania, and the
-          United States.
+          and lymphatic filariasis, as well as COVID-19, West Nile virus, and measles.
         </p>
       </div>
 
+      <section class="about-personal" aria-labelledby="personal-heading">
+        <p class="section-label">Beyond the analysis</p>
+        <h2 id="personal-heading">Always learning, often writing.</h2>
+        <p>I enjoy following a question beyond the immediate task, learning new methods and exchanging ideas with people who approach a problem differently. Scientific curiosity is part of how I work.</p>
+        <p>Sharing knowledge helps me reflect on what I have learned and make it useful to others, whether through scientific writing, conference reports or a conversation.</p>
+        <a href="/blog/">Read my articles and event reports &rarr;</a>
+      </section>
       <div class="about__details">
         <div class="about__card">
           <h3>Research identity</h3>
@@ -57,7 +69,9 @@ import { site, social } from "@/site.config";
         </div>
 
         <div class="about__card">
-          <h3>Connect</h3>
+          <p class="section-label">Professional contact</p>
+          <h3>{site.title}</h3>
+          <p class="contact-role">{site.tagline}<br />{site.location}</p>
           <ul class="about__links">
             <li><a href={`mailto:${site.email}`}>{site.email}</a></li>
             <li><a href={social.googlescholar}>Google Scholar</a></li>
@@ -75,9 +89,29 @@ import { site, social } from "@/site.config";
       </div>
     </div>
   </section>
+  </div>
 </BaseLayout>
 
 <style>
+  .about-page { --accent: #315b4e; --accent-hover: #214236; }
+  .about-page :global(:focus-visible) { outline: 3px solid #83692f; outline-offset: 5px; }
+  .about-hero { padding: calc(var(--header-height) + 4rem) 0 4rem; background: radial-gradient(ellipse at 95% 70%, #dce3d5, transparent 55%), #f7f4ec; border-bottom: 1px solid var(--border); }
+  .about-hero__grid { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 5rem; align-items: center; }
+  .about-hero h1 { margin: 0.8rem 0 1.3rem; font-size: clamp(2.6rem, 5vw, 4.3rem); color: #254d43; }
+  .about-role { max-width: 38ch; font-size: 1.2rem; color: #315b4e; }
+  .about-lead { max-width: 55ch; color: var(--text-muted); margin-bottom: 2rem; }
+  .about-portrait { margin: 0; padding: 0.65rem; background: #fffdf8; border: 1px solid var(--border); border-radius: 48% 48% 4px 4px; }
+  .about-portrait img { border-radius: 48% 48% 2px 2px; width: 100%; aspect-ratio: 1; object-fit: cover; }
+  .bio-heading { margin: 0 0 1.5rem !important; font-size: clamp(1.8rem, 3vw, 2.5rem) !important; }
+  .about__intro { max-width: 75ch; }
+  .about-personal { padding: 2.25rem; background: #eeeee4; border-left: 2px solid #b4a16d; }
+  .about-personal h2 { margin: 0 0 1.2rem; font-size: 2rem; }
+  .about-personal p:not(.section-label) { max-width: 70ch; color: var(--text-muted); }
+  .about-personal a, .about__links a { text-decoration: underline; text-underline-offset: 4px; }
+  .about__links a { overflow-wrap: anywhere; }
+  .contact-role { color: var(--text-muted); font-size: 0.88rem; }
+  @media (max-width: 760px) { .about-hero__grid { grid-template-columns: 1fr; gap: 2rem; } .about-portrait { width: min(280px, 100%); } .about-hero { padding-top: calc(var(--header-height) + 2.5rem); } .about-personal { padding: 1.5rem; } }
+
   .about {
     display: grid;
     gap: 3rem;
@@ -87,23 +121,9 @@ import { site, social } from "@/site.config";
     font-size: 1.08rem;
   }
 
-  .about__intro p:first-child {
-    color: var(--text);
-    font-weight: 500;
-  }
-
-  .about__intro p:first-child::first-letter {
-    float: left;
-    padding: 0.12rem 0.35rem 0 0;
-    font-family: var(--font-display);
-    font-size: 4rem;
-    line-height: 0.8;
-    color: var(--accent);
-  }
-
   .about__details {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
     gap: 1.5rem;
   }
 
