@@ -1,0 +1,177 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+type SourceRecord = {
+  title?: string;
+  url?: string;
+  source?: string;
+  category?: string;
+  published_date?: string;
+  event_date?: string;
+  verification?: string;
+};
+type PublicItem = { title: string; url: string; source: string; date: string; score: number };
+type Section = { heading: string; description: string; items: PublicItem[] };
+
+const sourceUrl = "https://raw.githubusercontent.com/ManuelaRunge/weekly-radar/main/data/items.json";
+const archiveUrl = "https://github.com/ManuelaRunge/weekly-radar/releases";
+const sourceRepo = "https://github.com/ManuelaRunge/weekly-radar";
+const today = new Date();
+today.setUTCHours(0, 0, 0, 0);
+const dayMs = 86_400_000;
+const ageInDays = (date: string): number | null => {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) return null;
+  const parsed = new Date(date + "T00:00:00Z");
+  if (Number.isNaN(parsed.getTime()) || parsed.toISOString().slice(0, 10) !== date) return null;
+  return Math.round((today.getTime() - parsed.getTime()) / dayMs);
+};
+const coreTerms = /\b(malaria|ntds?|neglected tropical|leishmani\w*|filari\w*|onchocer\w*|trachoma|schistosom\w*|dengue|cholera|yellow fever|ebola|tuberculosis|measles|rabies|vaccin\w*|immunis\w*|immuniz\w*|vector.borne|epidemiolog\w*|epidemic\w*|outbreak|surveillance|stratif\w*|tailor\w*|modelling|modeling|forecast\w*|campaign effectiveness|health financing|health systems|health policy|climate.sensitive infectious|antimicrobial resistance)\b/i;
+const secondaryTerms = /\b(public health|health impact|risk assessment|health programme|health program|global health|data analys\w*|statistical|reproducib\w*|research methods|health intervention|mathematical model|implementation research|disease elimination|disease control|drug development|clinical trial)\b/i;
+const lowValue = /^(highlighted signals and events|learn more|read more|view all|skip to|homepage|home|news|latest news|events|resources|about us)$/i;
+const exclude = /\b(entertainment|celebrity|concert|music video|blood donor campaign|director.general election|train accident)\b/i;
+const trustedHosts = /(^|\.)(who\.int|dndi\.org|malariaconsortium\.org|ammnet\.org|gavi\.org|theglobalfund\.org|worldbank\.org|wellcome\.org|gatesfoundation\.org|ghitfund\.org|unicef\.org|pubmed\.ncbi\.nlm\.nih\.gov|ncbi\.nlm\.nih\.gov|campaigneffectiveness\.org)$/i;
+
+const validUrl = (value: string): boolean => {
+  try {
+    const url = new URL(value);
+    return url.protocol === "https:" && Boolean(url.hostname) && !url.username && !url.password;
+  } catch { return false; }
+};
+const normaliseUrl = (value: string): string => {
+  const url = new URL(value);
+  url.hash = "";
+  url.searchParams.delete("utm_source");
+  url.searchParams.delete("utm_medium");
+  url.searchParams.delete("utm_campaign");
+  return url.toString().replace(/\/$/, "");
+};
+const scoreRecord = (item: SourceRecord): number => {
+  const title = item.title ?? "";
+  if (lowValue.test(title.trim()) || exclude.test(title)) return 0;
+  const core = coreTerms.test(title);
+  const secondary = secondaryTerms.test(title);
+  if (!core && !secondary) return 0;
+  let score = core ? 6 : 2;
+  if (/\b(malaria|ntds?|neglected tropical|vaccine|vaccination|epidemiolog|model|surveillance|stratif|tailor|leishman|onchocer|filari)\w*/i.test(title)) score += 3;
+  if (/\b(report|guidance|guideline|evaluation|analysis|study|trial|surveillance|research|policy|assessment)\b/i.test(title)) score += 2;
+  if (/(policy|snt|campaigns|tools|methods|malaria|ntd)/i.test(item.category ?? "")) score += 2;
+  try {
+    if (trustedHosts.test(new URL(item.url ?? "").hostname)) score += 1;
+  } catch { /* invalid URLs filtered separately */ }
+  return score;
+};
+const select = (records: SourceRecord[], dateField: "published_date" | "event_date", minAge: number, maxAge: number, limit: number) => {
+  const byUrl = new Map<string, PublicItem>();
+  for (const item of records) {
+    const title = item.title?.trim() ?? "";
+    const url = item.url?.trim() ?? "";
+    const date = item[dateField] ?? "";
+    if (!title || title.length > 200 || !validUrl(url)) continue;
+    if ((item.verification ?? "").toLowerCase() === "rejected") continue;
+    const age = ageInDays(date);
+    if (age === null || age < minAge || age > maxAge) continue;
+    const score = scoreRecord(item);
+    if (score < 4) continue;
+    const key = normaliseUrl(url);
+    const chosen = byUrl.get(key);
+    if (!chosen || score > chosen.score) {
+      byUrl.set(key, { title, url, date, source: item.source?.trim() || "Original source", score });
+    }
+  }
+  const ordered = [...byUrl.values()].sort((a, b) =>
+    dateField === "event_date"
+      ? a.date.localeCompare(b.date) || b.score - a.score
+      : b.score - a.score || b.date.localeCompare(a.date)
+  );
+  // Eliminate duplicate titles linking to the same announcement on different landing pages.
+  const byTitle = new Set<string>();
+  return ordered.filter((item) => {
+    const key = item.title.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim() + "|" + item.date;
+    if (byTitle.has(key)) return false;
+    byTitle.add(key);
+    return true;
+  }).slice(0, limit);
+};
+
+let sections: Section[] = [];
+let loadError = false;
+try {
+  const response = await fetch(sourceUrl, { signal: AbortSignal.timeout(15000) });
+  if (!response.ok) throw new Error("Radar source unavailable");
+  const records: unknown = await response.json();
+  if (!Array.isArray(records)) throw new Error("Unexpected Radar format");
+  const items = records as SourceRecord[];
+  sections = [
+    { heading: "This week", description: "Source-linked updates dated within the last seven days.", items: select(items, "published_date", 0, 7, 12) },
+    { heading: "Also worth reading", description: "Selected updates from the preceding week.", items: select(items, "published_date", 8, 14, 6) },
+    { heading: "Upcoming", description: "Events with an explicit future event date.", items: select(items, "event_date", -90, 0, 8) },
+  ];
+} catch {
+  loadError = true;
+}
+const isoDate = today.toISOString().slice(0, 10);
+---
+
+<BaseLayout title="RIDA Radar" description="Weekly source links in infectious disease epidemiology, malaria, neglected tropical diseases, vaccines and research methods.">
+  <div class="page-header">
+    <div class="container">
+      <p class="radar-kicker">Infectious disease research &amp; methods</p>
+      <h1>RIDA Radar</h1>
+      <p>A weekly selection of research, reports, tools and developments worth exploring.</p>
+      <p class="radar-date">Index prepared {isoDate}</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container radar-main">
+      <p class="radar-note">
+        Source-linked discovery, not a scientific review. Dates and titles are drawn from source records
+        and may not have been independently verified. Inclusion does not imply endorsement.
+      </p>
+
+      {loadError ? (
+        <p>Current Radar data could not be retrieved when this page was built. <a href={sourceRepo}>View the source repository</a>.</p>
+      ) : (
+        sections.map((section) => (
+          <section class="radar-section" aria-label={section.heading}>
+            <h2>{section.heading}</h2>
+            <p class="radar-section-description">{section.description}</p>
+            {section.items.length ? (
+              <ul class="radar-list">
+                {section.items.map((item) => (
+                  <li>
+                    <time datetime={item.date}>{item.date}</time>
+                    <div>
+                      <a href={item.url} rel="noopener noreferrer" target="_blank">{item.title}</a>
+                      <p class="radar-source">{item.source}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            ) : <p>No qualifying dated items in this period.</p>}
+          </section>
+        ))
+      )}
+      <div class="radar-footer">
+        <a href={archiveUrl}>Browse weekly Radar releases</a>
+        <a href={sourceRepo}>Source repository and methods</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .radar-main { max-width: 920px; }
+  .radar-kicker { color: var(--accent); font-size: .82rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+  .radar-date, .radar-section-description, .radar-source { color: var(--text-muted); font-size: .9rem; }
+  .radar-note { margin-bottom: 2.8rem; padding: 1rem 1.2rem; border-left: 3px solid var(--accent); background: var(--accent-soft); max-width: 75ch; }
+  .radar-section { margin-top: 2.5rem; }
+  .radar-section h2 { margin: 0 0 .2rem; font-size: clamp(1.3rem, 3vw, 1.9rem); }
+  .radar-list { padding: 0; margin: 1.1rem 0 0; list-style: none; }
+  .radar-list li { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 1.2rem; border-bottom: 1px solid var(--border); padding: .9rem 0; }
+  .radar-list time { color: var(--text-muted); font-size: .86rem; white-space: nowrap; }
+  .radar-list a { font-weight: 600; text-decoration: underline; text-underline-offset: 3px; overflow-wrap: anywhere; }
+  .radar-source { margin: .25rem 0 0; }
+  .radar-footer { margin-top: 2.5rem; display: flex; flex-wrap: wrap; gap: 1.5rem; font-size: .9rem; }
+  @media (max-width: 650px) { .radar-list li { grid-template-columns: 1fr; gap: .25rem; } }
+</style>
