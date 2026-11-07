@@ -4,13 +4,11 @@ import { expertise } from "@/site.config";
 
 <section class="section expertise" id="methods">
   <div class="container">
-    <p class="section-label">Research interests and methods</p>
-    <h2 class="section-title">Evidence, methods and infectious disease research</h2>
+    <p class="section-label">Areas of expertise</p>
+    <h2 class="section-title">Research grounded in careful methods</h2>
     <p class="expertise__intro">
-      My work connects field-informed epidemiology with quantitative tools,
-      structured evidence and close reading of assumptions. AI may be used
-      thoughtfully where appropriate, but human judgement, quality assurance and
-      methodological scrutiny remain essential.
+      Scientific and methodological expertise for collaboration, analytical support
+      and clear scientific writing.
     </p>
     <div class="expertise__grid">
       {
@@ -33,6 +31,8 @@ import { expertise } from "@/site.config";
     border-bottom: 1px solid var(--border);
   }
 
+  .section-title { max-width: 24ch; }
+
   .expertise__intro {
     max-width: 68ch;
     margin: -1.2rem 0 2.2rem;
@@ -42,16 +42,17 @@ import { expertise } from "@/site.config";
 
   .expertise__grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 235px), 1fr));
     gap: 1.25rem;
   }
 
   .expertise__card {
     position: relative;
-    padding: 2rem 1.75rem;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    background: linear-gradient(180deg, #fff, #f7fbfa);
+    padding: 1.5rem 0;
+    border: 0;
+    border-top: 2px solid #b4a16d;
+    border-radius: 0;
+    background: transparent;
     transition: border-color 0.2s ease, transform 0.2s ease;
   }
 
