@@ -61,18 +61,7 @@ const trajectoryItems = [
 <BaseLayout>
   <div class="home-redesign">
   <Hero />
-  <ExpertiseGrid />
-  <section class="section purpose" aria-labelledby="purpose-heading">
-    <div class="container purpose__grid">
-      <div><p class="section-label">What drives my work</p><h2 id="purpose-heading">Good questions.<br />Shared understanding.</h2></div>
-      <div class="purpose__copy">
-        <p>Many diseases and adverse health outcomes are preventable, treatable or reducible. Understanding where and how research can inform action is what keeps me asking questions.</p>
-        <p>I value scientific curiosity, continuous learning and the exchange of ideas. Writing is one way I make sense of complex research and share useful knowledge with others.</p>
-        <a href="/collaboration/">Exchange ideas or discuss a collaboration &rarr;</a>
-      </div>
-    </div>
-  </section>
-  <section class="section selected-writing" aria-labelledby="writing-heading">
+  <section class="section selected-writing" id="selected-writing" aria-labelledby="writing-heading">
     <div class="container">
       <div class="section-heading">
         <div><p class="section-label">Ideas &amp; observations</p><h2 id="writing-heading" class="section-title">Selected Writing</h2></div>
@@ -91,6 +80,8 @@ const trajectoryItems = [
       </div>
     </div>
   </section>
+
+  <ExpertiseGrid />
 
   <section class="section" id="selected-work">
     <div class="container">
@@ -166,11 +157,7 @@ const trajectoryItems = [
 <style>
   .home-redesign { --accent: #315b4e; --accent-hover: #214236; --accent-soft: #e5ebe2; }
   .home-redesign :global(:focus-visible) { outline: 3px solid #83692f; outline-offset: 5px; }
-  .purpose { background: #eeeee4; }
-  .purpose__grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; align-items: start; }
-  .purpose h2 { margin: 0; font-size: clamp(2rem, 3.5vw, 3rem); color: #254d43; }
-  .purpose__copy p { margin: 0 0 1.2rem; max-width: 60ch; color: var(--text-muted); }
-  .purpose__copy a, .text-link { text-decoration: underline; text-underline-offset: 5px; }
+  .text-link { text-decoration: underline; text-underline-offset: 5px; }
   .selected-writing { background: var(--bg-elevated); border-bottom: 1px solid var(--border); }
   .writing-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
   .writing-card { position: relative; padding: 1.8rem; border: 1px solid var(--border); background: #f7f4ec; display: flex; flex-direction: column; align-items: start; }
@@ -182,8 +169,9 @@ const trajectoryItems = [
   .writing-card:focus-within { outline: 3px solid #83692f; outline-offset: 4px; }
   .writing-card:hover h3 a { text-decoration: underline; text-underline-offset: 4px; }
   .writing-card__arrow { margin-top: auto; color: #315b4e; font-size: 1.4rem; }
-  @media (max-width: 760px) { .purpose__grid, .writing-grid { grid-template-columns: 1fr; gap: 1.5rem; } }
+  @media (max-width: 760px) { .writing-grid { grid-template-columns: 1fr; gap: 1.5rem; } }
 
+  #selected-writing,
   #methods,
   #selected-work,
   #portfolio {

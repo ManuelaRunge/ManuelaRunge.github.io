@@ -1,23 +1,12 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import CountriesStrip from "@/components/CountriesStrip.astro";
+import AboutIntro from "@/components/AboutIntro.astro";
 import { site, social } from "@/site.config";
 ---
 
 <BaseLayout title="About" description="About Manuela Runge — infectious disease epidemiologist.">
   <div class="about-page">
-  <section class="about-hero" aria-labelledby="about-heading">
-    <div class="container about-hero__grid">
-      <div>
-        <p class="section-label">About me</p>
-        <h1 id="about-heading">{site.title}</h1>
-        <p class="about-role">Infectious disease epidemiologist &amp; mathematical modeller</p>
-        <p class="about-lead">Working at the intersection of research, quantitative analysis and global health, with a focus on careful methods and shared understanding.</p>
-        <CountriesStrip />
-      </div>
-      <figure class="about-portrait"><img src={site.profileImage} alt="Manuela Runge" width="400" height="400" fetchpriority="high" /></figure>
-    </div>
-  </section>
+  <AboutIntro />
   <section class="section">
     <div class="container about">
       <div class="about__intro prose">
@@ -95,13 +84,6 @@ import { site, social } from "@/site.config";
 <style>
   .about-page { --accent: #315b4e; --accent-hover: #214236; }
   .about-page :global(:focus-visible) { outline: 3px solid #83692f; outline-offset: 5px; }
-  .about-hero { padding: calc(var(--header-height) + 4rem) 0 4rem; background: radial-gradient(ellipse at 95% 70%, #dce3d5, transparent 55%), #f7f4ec; border-bottom: 1px solid var(--border); }
-  .about-hero__grid { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 5rem; align-items: center; }
-  .about-hero h1 { margin: 0.8rem 0 1.3rem; font-size: clamp(2.6rem, 5vw, 4.3rem); color: #254d43; }
-  .about-role { max-width: 38ch; font-size: 1.2rem; color: #315b4e; }
-  .about-lead { max-width: 55ch; color: var(--text-muted); margin-bottom: 2rem; }
-  .about-portrait { margin: 0; padding: 0.65rem; background: #fffdf8; border: 1px solid var(--border); border-radius: 48% 48% 4px 4px; }
-  .about-portrait img { border-radius: 48% 48% 2px 2px; width: 100%; aspect-ratio: 1; object-fit: cover; }
   .bio-heading { margin: 0 0 1.5rem !important; font-size: clamp(1.8rem, 3vw, 2.5rem) !important; }
   .about__intro { max-width: 75ch; }
   .about-personal { padding: 2.25rem; background: #eeeee4; border-left: 2px solid #b4a16d; }
@@ -110,7 +92,7 @@ import { site, social } from "@/site.config";
   .about-personal a, .about__links a { text-decoration: underline; text-underline-offset: 4px; }
   .about__links a { overflow-wrap: anywhere; }
   .contact-role { color: var(--text-muted); font-size: 0.88rem; }
-  @media (max-width: 760px) { .about-hero__grid { grid-template-columns: 1fr; gap: 2rem; } .about-portrait { width: min(280px, 100%); } .about-hero { padding-top: calc(var(--header-height) + 2.5rem); } .about-personal { padding: 1.5rem; } }
+  @media (max-width: 760px) { .about-personal { padding: 1.5rem; } }
 
   .about {
     display: grid;
